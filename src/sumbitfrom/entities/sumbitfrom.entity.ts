@@ -5,26 +5,27 @@ export type SubmitFromDocument = SubmitFrom & Document;
 
 @Schema({ timestamps: true })
 export class SubmitFrom {
+  
   @Prop({ required: true })
-  fullName: string;
+  fullName!: string;
 
   @Prop({ required: true })
-  email: string;
+  email!: string;
 
   @Prop({ required: true })
-  phone: string;
+  phone!: string;
 
   @Prop({ required: true })
-  position: string;
+  position!: string;
 
   @Prop({ required: true })
-  resume: string; // File path
+  resume!: string; 
 
   @Prop({ required: false })
   portfolio?: string;
 
   @Prop({ required: true })
-  coverLetter: string;
+  coverLetter!: string;
 }
 
 export const SubmitFromSchema =
