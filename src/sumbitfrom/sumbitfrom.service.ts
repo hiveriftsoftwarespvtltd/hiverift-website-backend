@@ -5,6 +5,7 @@ import {
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import * as nodemailer from 'nodemailer';
+
 import { SubmitFrom, SubmitFromDocument } from './entities/sumbitfrom.entity';
 import { CreateSubmitFromDto } from './dto/create-sumbitfrom.dto';
 
@@ -19,9 +20,9 @@ export class SubmitFromService {
     try {
       const savedData = await this.submitFromModel.create({
         ...dto,
-        resume: file ? `/uploads/${file.filename}` : '',
+        resume: file ? file.originalname : '',
       });
-      await this.sendEmail(savedData);
+      await this.sendEmail(savedData, file);
 
       return {
         success: true,
@@ -37,7 +38,7 @@ export class SubmitFromService {
     }
   }
 
-  private async sendEmail(data: SubmitFrom) {
+  private async sendEmail(data: SubmitFrom, file?: Express.Multer.File) {
     if (!process.env.MAIL_USER || !process.env.MAIL_PASS) {
       throw new Error('Mail credentials missing in environment variables');
     }
@@ -52,12 +53,19 @@ export class SubmitFromService {
       },
     });
 
-    const resumeUrl = `${process.env.BASE_URL || 'http://localhost:4000'}${data.resume}`;
+    const attachments: any[] = [];
+    if (file) {
+      attachments.push({
+        filename: file.originalname,
+        content: file.buffer,
+      });
+    }
 
     await transporter.sendMail({
       from: process.env.MAIL_FROM,
       to: process.env.CONTACT_RECEIVER_EMAIL,
       subject: `New Job Application: ${data.position} - ${data.fullName}`,
+      attachments: attachments,
       html: `
         <div style="background:#f4f6f8; padding:30px; font-family: Arial, Helvetica, sans-serif;">
           <div style="max-width:600px; margin:0 auto; background:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
@@ -94,7 +102,7 @@ export class SubmitFromService {
                 <tr>
                   <td style="padding:10px; font-weight:600; color:#555;">Resume</td>
                   <td style="padding:10px;">
-                    <a href="${resumeUrl}" style="color:#059669; font-weight:600; text-decoration:none;">View Resume</a>
+                    <span style="color:#059669; font-weight:600;">Attached to this email</span>
                   </td>
                 </tr>
               </table>

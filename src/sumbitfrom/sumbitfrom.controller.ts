@@ -8,8 +8,7 @@ import {
 import { SubmitFromService } from './sumbitfrom.service';
 import { CreateSubmitFromDto } from './dto/create-sumbitfrom.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { diskStorage } from 'multer';
-import { extname } from 'path';
+import { memoryStorage } from 'multer';
 
 @Controller('submitfrom')
 export class SubmitFromController {
@@ -18,16 +17,7 @@ export class SubmitFromController {
   @Post()
   @UseInterceptors(
     FileInterceptor('resume', {
-      storage: diskStorage({
-        destination: './public/uploads',
-        filename: (req, file, cb) => {
-          const randomName = Array(32)
-            .fill(null)
-            .map(() => Math.round(Math.random() * 16).toString(16))
-            .join('');
-          cb(null, `${randomName}${extname(file.originalname)}`);
-        },
-      }),
+      storage: memoryStorage(),
     }),
   )
   create(
