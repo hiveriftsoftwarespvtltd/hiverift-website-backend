@@ -14,14 +14,24 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   const configService = app.get(ConfigService);
 
-  const port = parseInt(configService.get<string>('PORT') ?? '3000', 10);
+  const port = parseInt(configService.get<string>('PORT') ?? '4000', 10);
 
   app.set('trust proxy', 1);
-  app.use(helmet());
 
+  // Helmet with Cross-Origin Resource Policy allowed for static uploads
+  app.use(
+    helmet({
+      crossOriginResourcePolicy: { policy: 'cross-origin' },
+      crossOriginOpenerPolicy: { policy: 'unsafe-none' },
+    }),
+  );
+
+  // Enable CORS for all ports and origins
   app.enableCors({
-    origin: true,
+    origin: (origin, callback) => callback(null, true),
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
+    allowedHeaders: '*',
   });
 
   app.useStaticAssets(join(__dirname, '..', 'public/uploads'), {
@@ -34,15 +44,14 @@ async function bootstrap() {
 
   app.useGlobalPipes(
     new ValidationPipe({
-      whitelist: true,           
-      forbidNonWhitelisted: true,
-      transform: true,           
-      errorHttpStatusCode: 400,  
+      whitelist: true,
+      transform: true,
+      errorHttpStatusCode: 400,
     }),
   );
 
   await app.listen(port, '0.0.0.0');
-  console.log(` API running at: http://localhost:${port}/api/v1`);
+  console.log(`🚀 API running at: http://localhost:${port}/api/v1`);
 }
 
 bootstrap();

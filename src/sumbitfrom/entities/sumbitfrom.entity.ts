@@ -3,11 +3,18 @@ import { Document } from 'mongoose';
 
 export type SubmitFromDocument = SubmitFrom & Document;
 
-@Schema({ timestamps: true })
+@Schema({
+  timestamps: true,
+  collection: 'submitfroms',
+  autoCreate: false,
+  autoIndex: false,
+})
 export class SubmitFrom {
-  
-  @Prop({ required: true })
-  fullName!: string;
+  @Prop({ required: false })
+  fullName?: string;
+
+  @Prop({ required: false })
+  name?: string;
 
   @Prop({ required: true })
   email!: string;
@@ -15,18 +22,31 @@ export class SubmitFrom {
   @Prop({ required: true })
   phone!: string;
 
-  @Prop({ required: true })
-  position!: string;
+  @Prop({ required: false })
+  position?: string;
 
-  @Prop({ required: true })
-  resume!: string; 
+  @Prop({ required: false })
+  company?: string;
+
+  @Prop({ required: false })
+  service?: string;
+
+  @Prop({ required: false })
+  message?: string;
+
+  @Prop({ required: false })
+  resume?: string;
 
   @Prop({ required: false })
   portfolio?: string;
 
-  @Prop({ required: true })
-  coverLetter!: string;
+  @Prop({ required: false })
+  coverLetter?: string;
+
+  @Prop({ required: false, default: 'Pending' })
+  status?: string;
 }
 
-export const SubmitFromSchema =
-  SchemaFactory.createForClass(SubmitFrom);
+export const SubmitFromSchema = SchemaFactory.createForClass(SubmitFrom);
+SubmitFromSchema.set('autoCreate', false);
+SubmitFromSchema.set('autoIndex', false);

@@ -5,6 +5,8 @@ import mongoConfig from './config/mongo.config';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { SubmitFromModule } from './sumbitfrom/sumbitfrom.module';
+import { BlogModule } from './blog/blog.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -14,8 +16,8 @@ import { SubmitFromModule } from './sumbitfrom/sumbitfrom.module';
     }),
     MongooseModule.forRootAsync(mongoConfig),
     SubmitFromModule,
-  
-
+    BlogModule,
+    AuthModule,
   ],
 })
 export class AppModule {}
