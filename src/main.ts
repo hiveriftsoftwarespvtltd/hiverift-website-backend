@@ -34,11 +34,11 @@ async function bootstrap() {
     allowedHeaders: '*',
   });
 
-  app.useStaticAssets(join(__dirname, '..', 'public/uploads'), {
+  app.useStaticAssets(join(process.cwd(), 'public', 'uploads'), {
     prefix: '/uploads/',
   });
 
-  app.useStaticAssets(join(__dirname, '..', 'public'));
+  app.useStaticAssets(join(process.cwd(), 'public'));
 
   app.setGlobalPrefix('api/v1');
 

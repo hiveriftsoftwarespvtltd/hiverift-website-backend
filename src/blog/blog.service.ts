@@ -35,7 +35,17 @@ export class BlogService {
       }
 
       const slug = createBlogDto.slug || this.generateSlug(createBlogDto.title);
-      const imagePath = file ? file.filename || file.originalname : createBlogDto.image || '';
+      let imagePath = file
+        ? file.filename || file.originalname
+        : typeof createBlogDto.image === 'string'
+        ? createBlogDto.image
+        : '';
+
+      if (imagePath) {
+        imagePath = imagePath
+          .replace(/^https?:\/\/[^\/]+\/uploads\//, '')
+          .replace(/^\/?uploads\//, '');
+      }
 
       const docToInsert = {
         title: createBlogDto.title,
@@ -190,6 +200,12 @@ export class BlogService {
 
       if (file) {
         updateData.image = file.filename || file.originalname;
+      } else if (typeof updateData.image === 'string' && updateData.image) {
+        updateData.image = updateData.image
+          .replace(/^https?:\/\/[^\/]+\/uploads\//, '')
+          .replace(/^\/?uploads\//, '');
+      } else {
+        delete updateData.image;
       }
 
       await this.blogModel.collection.updateOne(

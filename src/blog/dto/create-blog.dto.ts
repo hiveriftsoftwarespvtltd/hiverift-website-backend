@@ -36,6 +36,11 @@ export class CreateBlogDto {
   authorRole?: string;
 
   @IsOptional()
+  @Transform(({ value }) =>
+    typeof value === 'object' || value === 'undefined' || value === 'null'
+      ? undefined
+      : value,
+  )
   @IsString()
   image?: string;
 

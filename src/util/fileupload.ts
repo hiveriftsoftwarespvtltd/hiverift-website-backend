@@ -4,11 +4,10 @@ import * as path from 'path';
 export const fileUpload = (folderName: string, file: any) => {
 
   const publicFolderPath = path.join(
-    __dirname,
-    '..',
-    '..',
+    process.cwd(),
     'public',
-    `uploads/${folderName}`,
+    'uploads',
+    folderName,
   );
   const allowedExtensions = ['.jpg', '.jpeg', '.png'];
 
