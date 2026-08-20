@@ -25,6 +25,27 @@ export class BlogService {
       .replace(/^-+|-+$/g, '');
   }
 
+  private formatBlogImage(blog: any): any {
+    if (!blog) return blog;
+    const doc = blog.toObject ? blog.toObject() : { ...blog };
+    const baseUrl = (
+      process.env.SERVER_BASE_URL ||
+      'https://hiverift.com'
+    ).replace(/\/$/, '');
+
+    if (doc.image && typeof doc.image === 'string') {
+      if (
+        !doc.image.startsWith('http://') &&
+        !doc.image.startsWith('https://') &&
+        !doc.image.startsWith('data:')
+      ) {
+        const cleanPath = doc.image.replace(/^\/?(uploads\/)?/, '');
+        doc.image = `${baseUrl}/uploads/${cleanPath}`;
+      }
+    }
+    return doc;
+  }
+
   async create(createBlogDto: CreateBlogDto, file?: Express.Multer.File) {
     try {
       let content = createBlogDto.content;
@@ -73,7 +94,7 @@ export class BlogService {
       return {
         success: true,
         message: 'Blog created successfully',
-        data: blog,
+        data: this.formatBlogImage(blog),
       };
     } catch (error: any) {
       console.error('Blog Create Error:', error);
@@ -114,7 +135,7 @@ export class BlogService {
       return {
         success: true,
         count: blogs.length,
-        data: blogs,
+        data: blogs.map((b) => this.formatBlogImage(b)),
       };
     } catch (error: any) {
       console.error('Blog FindAll Error:', error);
@@ -152,7 +173,7 @@ export class BlogService {
 
       return {
         success: true,
-        data: blog,
+        data: this.formatBlogImage(blog),
       };
     } catch (error: any) {
       if (error instanceof NotFoundException) throw error;
@@ -216,7 +237,7 @@ export class BlogService {
       return {
         success: true,
         message: 'Blog updated successfully',
-        data: { _id: existing._id, ...existing, ...updateData },
+        data: this.formatBlogImage({ _id: existing._id, ...existing, ...updateData }),
       };
     } catch (error: any) {
       if (error instanceof NotFoundException) throw error;
@@ -406,7 +427,7 @@ export class BlogService {
         success: true,
         message: 'Default blogs seeded successfully into database',
         count: results.length,
-        data: results,
+        data: results.map((b) => this.formatBlogImage(b)),
       };
     } catch (error: any) {
       console.error('Seed Error:', error);
