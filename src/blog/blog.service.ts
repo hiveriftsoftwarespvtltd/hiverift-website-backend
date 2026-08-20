@@ -27,19 +27,27 @@ export class BlogService {
 
   private formatBlogImage(blog: any): any {
     if (!blog) return blog;
-    const doc = blog.toObject ? blog.toObject() : { ...blog };
-    const baseUrl = (
-      process.env.SERVER_BASE_URL ||
-      'https://hiverift.com'
-    ).replace(/\/$/, '');
+    const doc = blog.toObject ? blog.toObject() : JSON.parse(JSON.stringify(blog));
 
-    if (doc.image && typeof doc.image === 'string') {
+    let baseUrl = (process.env.SERVER_BASE_URL || process.env.BASE_URL || '').trim();
+
+    if (!baseUrl || (process.env.NODE_ENV === 'production' && (baseUrl.includes('localhost') || baseUrl.includes('127.0.0.1')))) {
+      if (process.env.NODE_ENV === 'production') {
+        baseUrl = 'https://hiverift.com/hiverift_api';
+      } else {
+        baseUrl = 'http://localhost:4000';
+      }
+    }
+    baseUrl = baseUrl.replace(/\/$/, '');
+
+    let img = doc.image;
+    if (img && typeof img === 'string') {
       if (
-        !doc.image.startsWith('http://') &&
-        !doc.image.startsWith('https://') &&
-        !doc.image.startsWith('data:')
+        !img.startsWith('http://') &&
+        !img.startsWith('https://') &&
+        !img.startsWith('data:')
       ) {
-        const cleanPath = doc.image.replace(/^\/?(uploads\/)?/, '');
+        const cleanPath = img.replace(/^\/?(uploads\/)?/, '');
         doc.image = `${baseUrl}/uploads/${cleanPath}`;
       }
     }
@@ -229,15 +237,22 @@ export class BlogService {
         delete updateData.image;
       }
 
+      const targetId = existing._id;
+
       await this.blogModel.collection.updateOne(
-        { _id: existing._id },
+        { _id: targetId },
         { $set: updateData },
       );
+
+      let updatedDoc: any = await this.blogModel.collection.findOne({ _id: targetId });
+      if (!updatedDoc) {
+        updatedDoc = await this.blogModel.findById(targetId).lean().exec();
+      }
 
       return {
         success: true,
         message: 'Blog updated successfully',
-        data: this.formatBlogImage({ _id: existing._id, ...existing, ...updateData }),
+        data: this.formatBlogImage(updatedDoc),
       };
     } catch (error: any) {
       if (error instanceof NotFoundException) throw error;
