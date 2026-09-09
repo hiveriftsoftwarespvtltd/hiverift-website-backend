@@ -6,6 +6,7 @@ import {
   Param,
   Patch,
   Post,
+  Put,
   Query,
   UploadedFile,
   UseInterceptors,
@@ -67,6 +68,16 @@ export class BlogController {
   @Patch(':id')
   @UseInterceptors(FileInterceptor('image', { storage }))
   update(
+    @Param('id') id: string,
+    @Body() updateBlogDto: UpdateBlogDto,
+    @UploadedFile() file?: Express.Multer.File,
+  ) {
+    return this.blogService.update(id, updateBlogDto, file);
+  }
+
+  @Put(':id')
+  @UseInterceptors(FileInterceptor('image', { storage }))
+  updatePut(
     @Param('id') id: string,
     @Body() updateBlogDto: UpdateBlogDto,
     @UploadedFile() file?: Express.Multer.File,

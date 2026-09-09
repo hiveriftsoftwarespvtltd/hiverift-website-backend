@@ -29,19 +29,27 @@ export class BlogService {
     if (!blog) return blog;
     const doc = blog.toObject ? blog.toObject() : JSON.parse(JSON.stringify(blog));
 
+    const port = process.env.PORT || '4000';
     let baseUrl = (process.env.SERVER_BASE_URL || process.env.BASE_URL || '').trim();
 
     if (!baseUrl || (process.env.NODE_ENV === 'production' && (baseUrl.includes('localhost') || baseUrl.includes('127.0.0.1')))) {
       if (process.env.NODE_ENV === 'production') {
         baseUrl = 'https://hiverift.com/hiverift_api';
       } else {
-        baseUrl = 'http://localhost:4000';
+        baseUrl = `http://localhost:${port}`;
       }
+    }
+
+    if (process.env.NODE_ENV !== 'production' && baseUrl.includes('localhost:')) {
+      baseUrl = `http://localhost:${port}`;
     }
     baseUrl = baseUrl.replace(/\/$/, '');
 
     let img = doc.image;
     if (img && typeof img === 'string') {
+      // Strip any wrong legacy localhost ports (like :4005)
+      img = img.replace(/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?\/(uploads\/)?/, '');
+
       if (
         !img.startsWith('http://') &&
         !img.startsWith('https://') &&
@@ -49,6 +57,8 @@ export class BlogService {
       ) {
         const cleanPath = img.replace(/^\/?(uploads\/)?/, '');
         doc.image = `${baseUrl}/uploads/${cleanPath}`;
+      } else if (img.includes('localhost:4005') || img.includes('127.0.0.1:4005')) {
+        doc.image = img.replace(/localhost:4005/g, `localhost:${port}`).replace(/127\.0\.0\.1:4005/g, `127.0.0.1:${port}`);
       }
     }
     return doc;
@@ -231,6 +241,7 @@ export class BlogService {
         updateData.image = file.filename || file.originalname;
       } else if (typeof updateData.image === 'string' && updateData.image) {
         updateData.image = updateData.image
+          .replace(/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?\/(uploads\/)?/, '')
           .replace(/^https?:\/\/[^\/]+\/uploads\//, '')
           .replace(/^\/?uploads\//, '');
       } else {
