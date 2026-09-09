@@ -21,7 +21,10 @@ import { UpdateBlogDto } from './dto/update-blog.dto';
 
 const storage = diskStorage({
   destination: (req, file, callback) => {
-    const uploadPath = join(process.cwd(), 'public', 'uploads');
+    let uploadPath = join(process.cwd(), 'public', 'uploads');
+    if (!fs.existsSync(join(process.cwd(), 'package.json'))) {
+      uploadPath = join(__dirname, '..', '..', 'public', 'uploads');
+    }
     if (!fs.existsSync(uploadPath)) {
       fs.mkdirSync(uploadPath, { recursive: true });
     }

@@ -7,6 +7,7 @@ import * as dotenv from 'dotenv';
 import helmet from 'helmet';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
+import * as fs from 'fs';
 
 async function bootstrap() {
   dotenv.config();
@@ -34,18 +35,22 @@ async function bootstrap() {
     allowedHeaders: '*',
   });
 
-  // Mount uploads on all proxy prefixes (/api/v1/uploads/, /uploads/, /hiverift_api/uploads/)
-  app.useStaticAssets(join(process.cwd(), 'public', 'uploads'), {
-    prefix: '/api/v1/uploads/',
-  });
+  // Resolve public/uploads path robustly
+  const uploadDir = fs.existsSync(join(process.cwd(), 'package.json'))
+    ? join(process.cwd(), 'public', 'uploads')
+    : join(__dirname, '..', 'public', 'uploads');
 
-  app.useStaticAssets(join(process.cwd(), 'public', 'uploads'), {
-    prefix: '/uploads/',
-  });
+  if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+  }
 
-  app.useStaticAssets(join(process.cwd(), 'public', 'uploads'), {
-    prefix: '/hiverift_api/uploads/',
-  });
+  // Mount uploads on all possible proxy prefixes with and without trailing slash
+  app.useStaticAssets(uploadDir, { prefix: '/api/v1/uploads/' });
+  app.useStaticAssets(uploadDir, { prefix: '/api/v1/uploads' });
+  app.useStaticAssets(uploadDir, { prefix: '/uploads/' });
+  app.useStaticAssets(uploadDir, { prefix: '/uploads' });
+  app.useStaticAssets(uploadDir, { prefix: '/hiverift_api/uploads/' });
+  app.useStaticAssets(uploadDir, { prefix: '/hiverift_api/uploads' });
 
   app.useStaticAssets(join(process.cwd(), 'public'));
 
