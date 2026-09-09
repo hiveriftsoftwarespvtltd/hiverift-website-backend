@@ -34,8 +34,17 @@ async function bootstrap() {
     allowedHeaders: '*',
   });
 
+  // Mount uploads on all proxy prefixes (/api/v1/uploads/, /uploads/, /hiverift_api/uploads/)
+  app.useStaticAssets(join(process.cwd(), 'public', 'uploads'), {
+    prefix: '/api/v1/uploads/',
+  });
+
   app.useStaticAssets(join(process.cwd(), 'public', 'uploads'), {
     prefix: '/uploads/',
+  });
+
+  app.useStaticAssets(join(process.cwd(), 'public', 'uploads'), {
+    prefix: '/hiverift_api/uploads/',
   });
 
   app.useStaticAssets(join(process.cwd(), 'public'));

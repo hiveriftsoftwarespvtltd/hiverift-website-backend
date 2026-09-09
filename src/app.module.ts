@@ -13,6 +13,10 @@ import { AuthModule } from './auth/auth.module';
     ConfigModule.forRoot({ isGlobal: true }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
+      exclude: ['/api/(.*)', '/api/v1/(.*)', '/uploads/(.*)', '/hiverift_api/(.*)'],
+      serveStaticOptions: {
+        fallthrough: true,
+      },
     }),
     MongooseModule.forRootAsync(mongoConfig),
     SubmitFromModule,
