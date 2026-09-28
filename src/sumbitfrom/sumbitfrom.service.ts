@@ -327,6 +327,27 @@ export class SubmitFromService {
     }
   }
 
+  async purgeAll() {
+    try {
+      await this.submitFromModel.deleteMany({});
+      try {
+        await this.submitFromModel.collection.deleteMany({});
+      } catch (err) {
+        // Mongoose collection fallback handled
+      }
+      console.log('🧹 [SubmitFromService] All old queries purged successfully.');
+      return {
+        success: true,
+        message: 'All queries deleted successfully. Query log is now clean.',
+      };
+    } catch (error: any) {
+      console.error('Purge Submissions Error:', error);
+      throw new InternalServerErrorException(
+        error?.message || 'Failed to purge submissions',
+      );
+    }
+  }
+
   async updateStatus(id: string, status: string) {
     try {
       let updated: any;
@@ -355,6 +376,79 @@ export class SubmitFromService {
       console.error('Update Status Error:', error);
       throw new InternalServerErrorException(
         error?.message || 'Failed to update status',
+      );
+    }
+  }
+
+  async updateDetails(id: string, dto: any) {
+    try {
+      const updateFields: any = { updatedAt: new Date() };
+      if (dto.status !== undefined) updateFields.status = dto.status;
+      if (dto.priority !== undefined) updateFields.priority = dto.priority;
+      if (dto.assignedTo !== undefined) updateFields.assignedTo = dto.assignedTo;
+      if (dto.followUpDate !== undefined) updateFields.followUpDate = dto.followUpDate;
+
+      const updateOp: any = { $set: updateFields };
+      if (dto.note) {
+        updateOp.$push = {
+          internalNotes: {
+            note: dto.note,
+            author: dto.author || 'Staff',
+            createdAt: new Date(),
+          },
+        };
+      }
+
+      const { ObjectId } = require('mongodb');
+      let updated: any;
+      try {
+        updated = await this.submitFromModel.findByIdAndUpdate(id, updateOp, { new: true });
+      } catch (e) {
+        const res = await this.submitFromModel.collection.findOneAndUpdate(
+          { _id: new ObjectId(id) },
+          updateOp,
+          { returnDocument: 'after' },
+        );
+        updated = (res as any)?.value || res;
+      }
+
+      return {
+        success: true,
+        message: 'Query details updated successfully',
+        data: updated,
+      };
+    } catch (error: any) {
+      console.error('Update Query Details Error:', error);
+      throw new InternalServerErrorException(
+        error?.message || 'Failed to update query details',
+      );
+    }
+  }
+
+  async addNote(id: string, noteText: string, author = 'Staff') {
+    try {
+      const { ObjectId } = require('mongodb');
+      const newNote = {
+        note: noteText,
+        author,
+        createdAt: new Date(),
+      };
+      await this.submitFromModel.collection.updateOne(
+        { _id: new ObjectId(id) },
+        {
+          $push: { internalNotes: newNote } as any,
+          $set: { updatedAt: new Date() },
+        },
+      );
+      return {
+        success: true,
+        message: 'Note added successfully',
+        data: newNote,
+      };
+    } catch (error: any) {
+      console.error('Add Note Error:', error);
+      throw new InternalServerErrorException(
+        error?.message || 'Failed to add note',
       );
     }
   }

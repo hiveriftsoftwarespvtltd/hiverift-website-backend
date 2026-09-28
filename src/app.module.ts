@@ -7,13 +7,15 @@ import { join } from 'path';
 import { SubmitFromModule } from './sumbitfrom/sumbitfrom.module';
 import { BlogModule } from './blog/blog.module';
 import { AuthModule } from './auth/auth.module';
+import { TestimonialModule } from './testimonial/testimonial.module';
+import { CaseStudyModule } from './case-study/case-study.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
-      exclude: ['/api/(.*)', '/api/v1/(.*)', '/uploads/(.*)', '/hiverift_api/(.*)'],
+      exclude: ['/api{/*path}', '/uploads{/*path}', '/hiverift_api{/*path}'],
       serveStaticOptions: {
         fallthrough: true,
       },
@@ -22,6 +24,8 @@ import { AuthModule } from './auth/auth.module';
     SubmitFromModule,
     BlogModule,
     AuthModule,
+    TestimonialModule,
+    CaseStudyModule,
   ],
 })
 export class AppModule {}

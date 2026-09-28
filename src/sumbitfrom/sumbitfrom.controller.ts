@@ -67,6 +67,27 @@ export class SubmitFromController {
     return this.service.updateStatus(id, status);
   }
 
+  @Delete('purge-all')
+  purgeAll() {
+    return this.service.purgeAll();
+  }
+
+  @Patch(':id/details')
+  updateDetails(
+    @Param('id') id: string,
+    @Body() body: any,
+  ) {
+    return this.service.updateDetails(id, body);
+  }
+
+  @Post(':id/notes')
+  addNote(
+    @Param('id') id: string,
+    @Body() body: { note: string; author?: string },
+  ) {
+    return this.service.addNote(id, body.note, body.author);
+  }
+
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.service.remove(id);
