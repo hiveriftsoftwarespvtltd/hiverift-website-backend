@@ -34,7 +34,7 @@ export class BlogService {
 
     if (!baseUrl || (process.env.NODE_ENV === 'production' && (baseUrl.includes('localhost') || baseUrl.includes('127.0.0.1')))) {
       if (process.env.NODE_ENV === 'production') {
-        baseUrl = 'https://hiverift.com/hiverift_api';
+        baseUrl = 'https://api.hiverift.com';
       } else {
         baseUrl = `http://localhost:${port}`;
       }
