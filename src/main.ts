@@ -15,7 +15,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   const configService = app.get(ConfigService);
 
-  const port = parseInt(configService.get<string>('PORT') ?? '4000', 10);
+  const port = parseInt(configService.get<string>('PORT') ?? '7001', 10);
 
   app.set('trust proxy', 1);
 

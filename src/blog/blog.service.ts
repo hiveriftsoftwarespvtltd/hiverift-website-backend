@@ -29,7 +29,7 @@ export class BlogService {
     if (!blog) return blog;
     const doc = blog.toObject ? blog.toObject() : JSON.parse(JSON.stringify(blog));
 
-    const port = process.env.PORT || '4000';
+    const port = process.env.PORT || '7001';
     let baseUrl = (process.env.SERVER_BASE_URL || process.env.BASE_URL || '').trim();
 
     if (!baseUrl || (process.env.NODE_ENV === 'production' && (baseUrl.includes('localhost') || baseUrl.includes('127.0.0.1')))) {
