@@ -431,7 +431,7 @@ export class AuthService implements OnModuleInit {
    */
   private async sendOtpEmail(to: string, otp: string, userName: string, loginEmail: string) {
     try {
-      const mailUser = (this.configService.get<string>('MAIL_USER') || process.env.MAIL_USER || 'hiverift@gmail.com').trim();
+      const mailUser = (this.configService.get<string>('MAIL_USER') || process.env.MAIL_USER || 'ravi182036@gmail.com').trim();
       const mailPass = (this.configService.get<string>('MAIL_PASS') || process.env.MAIL_PASS || '').trim();
 
       if (!mailUser || !mailPass) {
@@ -440,7 +440,9 @@ export class AuthService implements OnModuleInit {
       }
 
       const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: this.configService.get<string>('MAIL_HOST') || 'smtp.gmail.com',
+        port: Number(this.configService.get<string>('MAIL_PORT')) || 587,
+        secure: false,
         auth: {
           user: mailUser,
           pass: mailPass,
