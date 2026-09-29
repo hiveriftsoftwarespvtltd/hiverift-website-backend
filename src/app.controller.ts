@@ -3,10 +3,13 @@ import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
-
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  getStatus() {
+    return {
+      status: 'success',
+      message: 'HiveRift API v1 is active and running',
+      version: '1.0.0',
+      timestamp: new Date().toISOString(),
+    };
   }
 }

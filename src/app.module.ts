@@ -9,6 +9,7 @@ import { BlogModule } from './blog/blog.module';
 import { AuthModule } from './auth/auth.module';
 import { TestimonialModule } from './testimonial/testimonial.module';
 import { CaseStudyModule } from './case-study/case-study.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -27,5 +28,6 @@ import { CaseStudyModule } from './case-study/case-study.module';
     TestimonialModule,
     CaseStudyModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule {}
