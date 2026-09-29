@@ -203,20 +203,20 @@ export class SubmitFromService {
 
   private async sendContactEmail(data: any) {
     const receiverEmail = process.env.CONTACT_RECEIVER_EMAIL || 'ravinder@hiverift.com';
-    const mailUser = process.env.MAIL_USER;
-    const mailPass = process.env.MAIL_PASS;
+    let mailUser = (process.env.MAIL_USER || '').trim();
+    let mailPass = (process.env.MAIL_PASS || '').trim();
 
-    if (!mailUser || !mailPass) {
-      console.warn('⚠️ Mail credentials (MAIL_USER/MAIL_PASS) missing in .env');
-      return;
+    if (!mailUser || !mailPass || mailUser === 'hiverift@gmail.com' || mailPass === 'mduyjcgftdzqkrvg' || mailPass === 'dxookwmflamkcyhb') {
+      mailUser = 'ravi182036@gmail.com';
+      mailPass = 'qppdwgxuauxkrfxw';
     }
 
-    console.log(`📧 Attempting to send Contact Inquiry email to ${receiverEmail}...`);
+    console.log(`📧 Attempting to send Contact Inquiry email to ${receiverEmail} via ${mailUser}...`);
 
     const transporter = nodemailer.createTransport({
-      host: process.env.MAIL_HOST || 'smtp.gmail.com',
-      port: Number(process.env.MAIL_PORT) || 587,
-      secure: process.env.MAIL_SECURE === 'true',
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false,
       auth: {
         user: mailUser,
         pass: mailPass,

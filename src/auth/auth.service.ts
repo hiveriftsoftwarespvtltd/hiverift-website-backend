@@ -431,17 +431,20 @@ export class AuthService implements OnModuleInit {
    */
   private async sendOtpEmail(to: string, otp: string, userName: string, loginEmail: string) {
     try {
-      const mailUser = (this.configService.get<string>('MAIL_USER') || process.env.MAIL_USER || 'ravi182036@gmail.com').trim();
-      const mailPass = (this.configService.get<string>('MAIL_PASS') || process.env.MAIL_PASS || '').trim();
+      let mailUser = (this.configService.get<string>('MAIL_USER') || process.env.MAIL_USER || '').trim();
+      let mailPass = (this.configService.get<string>('MAIL_PASS') || process.env.MAIL_PASS || '').trim();
 
-      if (!mailUser || !mailPass) {
-        this.logger.warn(`⚠️ SMTP MAIL_USER or MAIL_PASS missing. OTP logged to console: [${otp}]`);
-        return;
+      // Ensure verified active SMTP credentials are used even if live server .env is outdated
+      if (!mailUser || !mailPass || mailUser === 'hiverift@gmail.com' || mailPass === 'mduyjcgftdzqkrvg' || mailPass === 'dxookwmflamkcyhb') {
+        mailUser = 'ravi182036@gmail.com';
+        mailPass = 'qppdwgxuauxkrfxw';
       }
 
+      this.logger.log(`📧 [Nodemailer] Dispatching 2FA OTP to ${to} using SMTP sender: ${mailUser}`);
+
       const transporter = nodemailer.createTransport({
-        host: this.configService.get<string>('MAIL_HOST') || 'smtp.gmail.com',
-        port: Number(this.configService.get<string>('MAIL_PORT')) || 587,
+        host: 'smtp.gmail.com',
+        port: 587,
         secure: false,
         auth: {
           user: mailUser,
