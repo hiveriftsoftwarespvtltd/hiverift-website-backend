@@ -12,7 +12,8 @@ export class HumanTouchPoint {
   description!: string;
 }
 
-export const HumanTouchPointSchema = SchemaFactory.createForClass(HumanTouchPoint);
+export const HumanTouchPointSchema =
+  SchemaFactory.createForClass(HumanTouchPoint);
 
 @Schema({
   timestamps: true,
@@ -25,7 +26,11 @@ export class CaseStudy {
   @Prop({ required: true, unique: true, trim: true, lowercase: true })
   projectId!: string;
 
-  @Prop({ required: true, enum: ['web', 'ecommerce', 'software'], default: 'web' })
+  @Prop({
+    required: true,
+    enum: ['web', 'ecommerce', 'software'],
+    default: 'web',
+  })
   category!: 'web' | 'ecommerce' | 'software';
 
   @Prop({ required: true, trim: true, default: 'Web Development' })

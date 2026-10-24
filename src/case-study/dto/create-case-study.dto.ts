@@ -1,4 +1,11 @@
-import { IsNotEmpty, IsOptional, IsString, IsEnum, IsBoolean, IsNumber } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  IsEnum,
+  IsBoolean,
+  IsNumber,
+} from 'class-validator';
 
 export class CreateCaseStudyDto {
   @IsNotEmpty()

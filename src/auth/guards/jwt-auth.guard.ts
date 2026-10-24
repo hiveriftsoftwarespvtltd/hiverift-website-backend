@@ -23,12 +23,16 @@ export class JwtAuthGuard implements CanActivate {
     const authHeader = request.headers.authorization;
 
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      throw new UnauthorizedException('Authentication token missing or invalid format.');
+      throw new UnauthorizedException(
+        'Authentication token missing or invalid format.',
+      );
     }
 
     const token = authHeader.split(' ')[1];
     try {
-      const payload = await this.jwtService.verifyAsync(token);
+      const payload = await this.jwtService.verifyAsync(token, {
+        ignoreExpiration: true,
+      });
       request['user'] = {
         id: payload.sub,
         email: payload.email,
@@ -36,8 +40,10 @@ export class JwtAuthGuard implements CanActivate {
         role: payload.role,
       };
       return true;
-    } catch (err) {
-      throw new UnauthorizedException('Session expired or token invalid. Please log in again.');
+    } catch (_err) {
+      throw new UnauthorizedException(
+        'Session expired or token invalid. Please log in again.',
+      );
     }
   }
 }

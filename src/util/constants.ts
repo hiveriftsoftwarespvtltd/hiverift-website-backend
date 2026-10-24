@@ -15,7 +15,7 @@ export const COMMON = {
 
 export const ENTITY = {
   USER: 'User',
-  DISCOUNT:"discount"
+  DISCOUNT: 'discount',
 };
 
 export const ROUTE = {
@@ -28,17 +28,15 @@ export const ROUTE = {
   SEND: 'send',
   RESEND: 'resend',
   VERIFY: 'verify',
-  RESET_PASSWORD:'reset-password',
-  CATEGORY:'categories',
-  ORDER:'order',
-  USER:'user',
-  RIDER:'rider',
-  BANNER:'banner',
-  MENU:'menu',
-  
+  RESET_PASSWORD: 'reset-password',
+  CATEGORY: 'categories',
+  ORDER: 'order',
+  USER: 'user',
+  RIDER: 'rider',
+  BANNER: 'banner',
+  MENU: 'menu',
 };
 export const MESSAGE = {
- 
   USER: {
     USER_CREATED_SUCCESSFULLY: 'User created successfully',
     USER_NOT_FOUND: 'User not found',
@@ -53,11 +51,12 @@ export const MESSAGE = {
     RESENT: 'Otp re-send successfully.',
     VERIFY: 'Otp verified successfully.',
   },
- 
-  PASSWORD:{
-    RESET_SUCCESSFULL:"Password has been changed succesfully",
-    RESET_FAIL:"Password change has been failed, please try again with new otp"
-  }
+
+  PASSWORD: {
+    RESET_SUCCESSFULL: 'Password has been changed succesfully',
+    RESET_FAIL:
+      'Password change has been failed, please try again with new otp',
+  },
 };
 
 // export const ROUTE = {

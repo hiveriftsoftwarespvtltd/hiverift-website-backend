@@ -29,10 +29,7 @@ export class SubmitFromController {
       storage: memoryStorage(),
     }),
   )
-  create(
-    @Body() dto: any,
-    @UploadedFile() file?: Express.Multer.File,
-  ) {
+  create(@Body() dto: any, @UploadedFile() file?: Express.Multer.File) {
     if (dto.name || dto.message) {
       return this.service.createContactInquiry(dto);
     }
@@ -50,19 +47,13 @@ export class SubmitFromController {
   }
 
   @Patch(':id/status')
-  updateStatus(
-    @Param('id') id: string,
-    @Body() body: any,
-  ) {
+  updateStatus(@Param('id') id: string, @Body() body: any) {
     const status = typeof body === 'string' ? body : body?.status;
     return this.service.updateStatus(id, status);
   }
 
   @Put(':id/status')
-  updateStatusPut(
-    @Param('id') id: string,
-    @Body() body: any,
-  ) {
+  updateStatusPut(@Param('id') id: string, @Body() body: any) {
     const status = typeof body === 'string' ? body : body?.status;
     return this.service.updateStatus(id, status);
   }
@@ -73,10 +64,7 @@ export class SubmitFromController {
   }
 
   @Patch(':id/details')
-  updateDetails(
-    @Param('id') id: string,
-    @Body() body: any,
-  ) {
+  updateDetails(@Param('id') id: string, @Body() body: any) {
     return this.service.updateDetails(id, body);
   }
 

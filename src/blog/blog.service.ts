@@ -27,12 +27,22 @@ export class BlogService {
 
   private formatBlogImage(blog: any): any {
     if (!blog) return blog;
-    const doc = blog.toObject ? blog.toObject() : JSON.parse(JSON.stringify(blog));
+    const doc = blog.toObject
+      ? blog.toObject()
+      : JSON.parse(JSON.stringify(blog));
 
     const port = process.env.PORT || '7001';
-    let baseUrl = (process.env.SERVER_BASE_URL || process.env.BASE_URL || '').trim();
+    let baseUrl = (
+      process.env.SERVER_BASE_URL ||
+      process.env.BASE_URL ||
+      ''
+    ).trim();
 
-    if (!baseUrl || (process.env.NODE_ENV === 'production' && (baseUrl.includes('localhost') || baseUrl.includes('127.0.0.1')))) {
+    if (
+      !baseUrl ||
+      (process.env.NODE_ENV === 'production' &&
+        (baseUrl.includes('localhost') || baseUrl.includes('127.0.0.1')))
+    ) {
       if (process.env.NODE_ENV === 'production') {
         baseUrl = 'https://api.hiverift.com';
       } else {
@@ -40,7 +50,10 @@ export class BlogService {
       }
     }
 
-    if (process.env.NODE_ENV !== 'production' && baseUrl.includes('localhost:')) {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      baseUrl.includes('localhost:')
+    ) {
       baseUrl = `http://localhost:${port}`;
     }
     baseUrl = baseUrl.replace(/\/$/, '');
@@ -48,7 +61,10 @@ export class BlogService {
     let img = doc.image;
     if (img && typeof img === 'string') {
       // Strip any wrong legacy localhost ports (like :4005)
-      img = img.replace(/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?\/(uploads\/)?/, '');
+      img = img.replace(
+        /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?\/(uploads\/)?/,
+        '',
+      );
 
       if (
         !img.startsWith('http://') &&
@@ -57,8 +73,13 @@ export class BlogService {
       ) {
         const cleanPath = img.replace(/^\/?(uploads\/)?/, '');
         doc.image = `${baseUrl}/uploads/${cleanPath}`;
-      } else if (img.includes('localhost:4005') || img.includes('127.0.0.1:4005')) {
-        doc.image = img.replace(/localhost:4005/g, `localhost:${port}`).replace(/127\.0\.0\.1:4005/g, `127.0.0.1:${port}`);
+      } else if (
+        img.includes('localhost:4005') ||
+        img.includes('127.0.0.1:4005')
+      ) {
+        doc.image = img
+          .replace(/localhost:4005/g, `localhost:${port}`)
+          .replace(/127\.0\.0\.1:4005/g, `127.0.0.1:${port}`);
       }
     }
     return doc;
@@ -77,8 +98,8 @@ export class BlogService {
       let imagePath = file
         ? file.filename || file.originalname
         : typeof createBlogDto.image === 'string'
-        ? createBlogDto.image
-        : '';
+          ? createBlogDto.image
+          : '';
 
       if (imagePath) {
         imagePath = imagePath
@@ -103,7 +124,9 @@ export class BlogService {
 
       let blog: any;
       try {
-        const res = await this.blogModel.collection.insertOne(docToInsert as any);
+        const res = await this.blogModel.collection.insertOne(
+          docToInsert as any,
+        );
         blog = { _id: res.insertedId, ...docToInsert };
       } catch (err: any) {
         blog = await this.blogModel.create(docToInsert);
@@ -144,10 +167,7 @@ export class BlogService {
           .sort({ createdAt: -1 })
           .toArray();
       } catch (e) {
-        blogs = await this.blogModel
-          .find(query)
-          .sort({ createdAt: -1 })
-          .exec();
+        blogs = await this.blogModel.find(query).sort({ createdAt: -1 }).exec();
       }
 
       return {
@@ -241,7 +261,10 @@ export class BlogService {
         updateData.image = file.filename || file.originalname;
       } else if (typeof updateData.image === 'string' && updateData.image) {
         updateData.image = updateData.image
-          .replace(/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?\/(uploads\/)?/, '')
+          .replace(
+            /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?\/(uploads\/)?/,
+            '',
+          )
           .replace(/^https?:\/\/[^\/]+\/uploads\//, '')
           .replace(/^\/?uploads\//, '');
       } else {
@@ -255,7 +278,9 @@ export class BlogService {
         { $set: updateData },
       );
 
-      let updatedDoc: any = await this.blogModel.collection.findOne({ _id: targetId });
+      let updatedDoc: any = await this.blogModel.collection.findOne({
+        _id: targetId,
+      });
       if (!updatedDoc) {
         updatedDoc = await this.blogModel.findById(targetId).lean().exec();
       }
@@ -308,7 +333,7 @@ export class BlogService {
           title:
             'Why Your Rs. 5,000 Website Is Costing You More Than You Think',
           slug: 'why-your-rs-5000-website-is-costing-you-more-than-you-think',
-          desc: 'Cheap websites may save money upfront, but slow speeds, poor SEO, and security flaws cost you customers daily. Here\'s the real cost of budget web development.',
+          desc: "Cheap websites may save money upfront, but slow speeds, poor SEO, and security flaws cost you customers daily. Here's the real cost of budget web development.",
           category: 'Web Development',
           readTime: '5 min read',
           author: 'HiveRift Team',
@@ -317,7 +342,7 @@ export class BlogService {
             'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
           content: {
             intro:
-              'In today\'s competitive digital landscape, many business owners fall into the trap of purchasing ultra-cheap websites priced at Rs. 3,000 to Rs. 5,000. While it seems like a cost-effective solution initially, unoptimized code, zero mobile responsiveness, and weak security measures end up costing tenfold in lost sales and damaged reputation.',
+              "In today's competitive digital landscape, many business owners fall into the trap of purchasing ultra-cheap websites priced at Rs. 3,000 to Rs. 5,000. While it seems like a cost-effective solution initially, unoptimized code, zero mobile responsiveness, and weak security measures end up costing tenfold in lost sales and damaged reputation.",
             keyTakeaways: [
               'Slow load times drop conversion rates by over 40%.',
               'Templated budget sites lack proper SEO schema and security headers.',
@@ -345,7 +370,8 @@ export class BlogService {
           },
         },
         {
-          title: 'Top 7 Digital Marketing Strategies for Indian Businesses in 2026',
+          title:
+            'Top 7 Digital Marketing Strategies for Indian Businesses in 2026',
           slug: 'top-7-digital-marketing-strategies-for-indian-businesses-in-2026',
           desc: 'Discover actionable strategies to scale your reach, optimize ad spend, and convert traffic into loyal clients in 2026.',
           category: 'Digital Marketing',
@@ -380,7 +406,8 @@ export class BlogService {
           },
         },
         {
-          title: 'Practical AI Integration: How Businesses Can Automate Workflows Today',
+          title:
+            'Practical AI Integration: How Businesses Can Automate Workflows Today',
           slug: 'practical-ai-integration-how-businesses-can-automate-workflows-today',
           desc: 'Learn how to leverage AI tools and custom automation pipelines to save hundreds of hours monthly.',
           category: 'Tech & AI',
@@ -391,7 +418,7 @@ export class BlogService {
             'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800',
           content: {
             intro:
-              'Artificial Intelligence has transitioned from hype to practical business utility. For Indian businesses, implementing AI isn\'t about replacing human talent—it\'s about automating repetitive operations and delivering hyper-personalized customer experiences.',
+              "Artificial Intelligence has transitioned from hype to practical business utility. For Indian businesses, implementing AI isn't about replacing human talent—it's about automating repetitive operations and delivering hyper-personalized customer experiences.",
             keyTakeaways: [
               'AI-powered customer service chatbots provide 24/7 multilingual support.',
               'Predictive analytics help optimize inventory, supply chains, and lead scoring.',
@@ -413,7 +440,7 @@ export class BlogService {
               },
             ],
             quote:
-              'AI won\'t replace your business, but businesses using AI effectively will replace those that don\'t.',
+              "AI won't replace your business, but businesses using AI effectively will replace those that don't.",
             conclusion:
               'Leveraging accessible AI solutions today empowers Indian enterprises to operate with speed, agility, and world-class customer support.',
           },

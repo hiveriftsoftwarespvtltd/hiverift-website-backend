@@ -70,10 +70,7 @@ export class CaseStudyController {
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Admin', 'Sales')
   @UseInterceptors(FileInterceptor('image', { storage }))
-  async create(
-    @Body() dto: CreateCaseStudyDto,
-    @UploadedFile() file?: any,
-  ) {
+  async create(@Body() dto: CreateCaseStudyDto, @UploadedFile() file?: any) {
     const data = await this.caseStudyService.create(dto, file);
     return { success: true, message: 'Case study created successfully', data };
   }

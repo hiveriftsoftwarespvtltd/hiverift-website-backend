@@ -1,4 +1,11 @@
-import { IsEmail, IsEnum, IsNotEmpty, IsOptional, IsString, MinLength } from 'class-validator';
+import {
+  IsEmail,
+  IsEnum,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  MinLength,
+} from 'class-validator';
 import type { UserRole } from '../entities/user.entity';
 
 export class UpdateProfileDto {
@@ -40,7 +47,9 @@ export class CreateUserDto {
   @MinLength(6, { message: 'Password must be at least 6 characters long' })
   password!: string;
 
-  @IsEnum(['Admin', 'Sales', 'Blog'], { message: 'Role must be Admin, Sales, or Blog' })
+  @IsEnum(['Admin', 'Sales', 'Blog'], {
+    message: 'Role must be Admin, Sales, or Blog',
+  })
   @IsNotEmpty()
   role!: UserRole;
 }

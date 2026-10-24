@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import {SubmitFromController } from './sumbitfrom.controller';
+import { SubmitFromController } from './sumbitfrom.controller';
 import { SubmitFromService } from './sumbitfrom.service';
 
 describe('SumbitfromController', () => {

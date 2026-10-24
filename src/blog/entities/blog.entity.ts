@@ -32,7 +32,8 @@ export class BlogContentDetail {
   conclusion!: string;
 }
 
-export const BlogContentDetailSchema = SchemaFactory.createForClass(BlogContentDetail);
+export const BlogContentDetailSchema =
+  SchemaFactory.createForClass(BlogContentDetail);
 
 @Schema({
   timestamps: true,

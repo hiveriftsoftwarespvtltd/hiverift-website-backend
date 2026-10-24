@@ -72,17 +72,24 @@ export class AuthService implements OnModuleInit {
           password: hashedPassword,
           isActive: true,
         });
-        this.logger.log(`🌱 [Seed] Initialized primary administrator: ${adminEmail} (password: ${defaultPassword})`);
+        this.logger.log(
+          `🌱 [Seed] Initialized primary administrator: ${adminEmail} (password: ${defaultPassword})`,
+        );
       } else {
         // Ensure admin password is reset to admin123 so the user can log in immediately
         existingAdmin.password = hashedPassword;
         existingAdmin.role = 'Admin' as UserRole;
         existingAdmin.isActive = true;
         await existingAdmin.save();
-        this.logger.log(`🔒 [Security] Verified primary administrator: ${adminEmail} (role: Admin, active)`);
+        this.logger.log(
+          `🔒 [Security] Verified primary administrator: ${adminEmail} (role: Admin, active)`,
+        );
       }
     } catch (err: any) {
-      this.logger.error('Failed to seed default CMS users:', err?.message || err);
+      this.logger.error(
+        'Failed to seed default CMS users:',
+        err?.message || err,
+      );
     }
   }
 
@@ -95,7 +102,9 @@ export class AuthService implements OnModuleInit {
 
     // Strict Enforcement: Only hiverift@gmail.com is authorized for Admin CMS access
     if (email !== 'hiverift@gmail.com') {
-      throw new UnauthorizedException('Access denied. Only hiverift@gmail.com is authorized for administrator access.');
+      throw new UnauthorizedException(
+        'Access denied. Only hiverift@gmail.com is authorized for administrator access.',
+      );
     }
 
     let user = await this.userModel.findOne({ email });
@@ -112,7 +121,9 @@ export class AuthService implements OnModuleInit {
     }
 
     if (!user.isActive) {
-      throw new UnauthorizedException('Your administrator account is disabled.');
+      throw new UnauthorizedException(
+        'Your administrator account is disabled.',
+      );
     }
 
     // Verify Password (supports bcrypt hash and plain 'admin123')
@@ -155,13 +166,22 @@ export class AuthService implements OnModuleInit {
     });
 
     // Always log OTP for security tracking and fast developer verification
-    this.logger.log(`🔐 [HiveRift 2FA OTP] Code generated for ${user.email} -> sent to ${this.REGISTERED_OTP_EMAIL} [OTP: ${otp}]`);
+    this.logger.log(
+      `🔐 [HiveRift 2FA OTP] Code generated for ${user.email} -> sent to ${this.REGISTERED_OTP_EMAIL} [OTP: ${otp}]`,
+    );
 
     // Dispatch OTP email to hiverift@gmail.com
     try {
-      await this.sendOtpEmail(this.REGISTERED_OTP_EMAIL, otp, user.name, user.email);
+      await this.sendOtpEmail(
+        this.REGISTERED_OTP_EMAIL,
+        otp,
+        user.name,
+        user.email,
+      );
     } catch (mailErr: any) {
-      this.logger.error(`❌ Failed to send OTP email: ${mailErr?.message || mailErr}`);
+      this.logger.error(
+        `❌ Failed to send OTP email: ${mailErr?.message || mailErr}`,
+      );
     }
 
     return {
@@ -182,28 +202,38 @@ export class AuthService implements OnModuleInit {
   async verifyOtp(dto: VerifyOtpDto) {
     const session = this.otpSessions.get(dto.tempToken);
     if (!session) {
-      throw new UnauthorizedException('Verification session expired or invalid. Please log in again.');
+      throw new UnauthorizedException(
+        'Verification session expired or invalid. Please log in again.',
+      );
     }
 
     if (Date.now() > session.expiresAt) {
       this.otpSessions.delete(dto.tempToken);
-      throw new UnauthorizedException('Verification code has expired. Please request a new OTP.');
+      throw new UnauthorizedException(
+        'Verification code has expired. Please request a new OTP.',
+      );
     }
 
     if (session.otp !== dto.otp.trim()) {
       session.attempts += 1;
       if (session.attempts >= 5) {
         this.otpSessions.delete(dto.tempToken);
-        throw new UnauthorizedException('Too many invalid attempts. Session terminated for security.');
+        throw new UnauthorizedException(
+          'Too many invalid attempts. Session terminated for security.',
+        );
       }
-      throw new UnauthorizedException(`Invalid verification code. ${5 - session.attempts} attempts remaining.`);
+      throw new UnauthorizedException(
+        `Invalid verification code. ${5 - session.attempts} attempts remaining.`,
+      );
     }
 
     // OTP Validated Successfully
     this.otpSessions.delete(dto.tempToken);
 
     // Update last login
-    await this.userModel.findByIdAndUpdate(session.userId, { lastLogin: new Date() });
+    await this.userModel.findByIdAndUpdate(session.userId, {
+      lastLogin: new Date(),
+    });
 
     // Issue JWT Token
     const payload = {
@@ -213,9 +243,14 @@ export class AuthService implements OnModuleInit {
       role: session.role,
     };
 
-    const token = this.jwtService.sign(payload);
+    // Issue JWT Token with permanent session duration (100 years = 36500d)
+    const token = this.jwtService.sign(payload, {
+      expiresIn: '36500d',
+    });
 
-    this.logger.log(`✅ [2FA Verified] User ${session.email} logged in successfully with role '${session.role}'`);
+    this.logger.log(
+      `✅ [2FA Verified] User ${session.email} logged in successfully with role '${session.role}'`,
+    );
 
     return {
       success: true,
@@ -244,8 +279,15 @@ export class AuthService implements OnModuleInit {
     session.expiresAt = Date.now() + 10 * 60 * 1000;
     session.attempts = 0;
 
-    await this.sendOtpEmail(this.REGISTERED_OTP_EMAIL, newOtp, session.name, session.email);
-    this.logger.log(`🔄 [Resend OTP] New code dispatched for ${session.email} -> ${this.REGISTERED_OTP_EMAIL} [OTP: ${newOtp}]`);
+    await this.sendOtpEmail(
+      this.REGISTERED_OTP_EMAIL,
+      newOtp,
+      session.name,
+      session.email,
+    );
+    this.logger.log(
+      `🔄 [Resend OTP] New code dispatched for ${session.email} -> ${this.REGISTERED_OTP_EMAIL} [OTP: ${newOtp}]`,
+    );
 
     return {
       success: true,
@@ -277,16 +319,23 @@ export class AuthService implements OnModuleInit {
     }
 
     // Verify current password
-    const isPassValid = await bcrypt.compare(dto.currentPassword, user.password);
+    const isPassValid = await bcrypt.compare(
+      dto.currentPassword,
+      user.password,
+    );
     if (!isPassValid) {
-      throw new UnauthorizedException('Current password does not match. Profile update rejected.');
+      throw new UnauthorizedException(
+        'Current password does not match. Profile update rejected.',
+      );
     }
 
     const targetEmail = dto.email.trim().toLowerCase();
     if (targetEmail !== user.email) {
       const emailExists = await this.userModel.findOne({ email: targetEmail });
       if (emailExists && (emailExists as any)._id.toString() !== userId) {
-        throw new BadRequestException('This email is already in use by another account.');
+        throw new BadRequestException(
+          'This email is already in use by another account.',
+        );
       }
       user.email = targetEmail;
     }
@@ -315,19 +364,26 @@ export class AuthService implements OnModuleInit {
       throw new NotFoundException('User not found.');
     }
 
-    const isCurrentValid = await bcrypt.compare(dto.currentPassword, user.password);
+    const isCurrentValid = await bcrypt.compare(
+      dto.currentPassword,
+      user.password,
+    );
     if (!isCurrentValid) {
       throw new UnauthorizedException('Current password is incorrect.');
     }
 
     if (dto.newPassword.length < 6) {
-      throw new BadRequestException('New password must be at least 6 characters long.');
+      throw new BadRequestException(
+        'New password must be at least 6 characters long.',
+      );
     }
 
     user.password = await bcrypt.hash(dto.newPassword, 10);
     await user.save();
 
-    this.logger.log(`🔐 [Password Changed] User ${user.email} updated their password securely.`);
+    this.logger.log(
+      `🔐 [Password Changed] User ${user.email} updated their password securely.`,
+    );
 
     return {
       success: true,
@@ -339,7 +395,10 @@ export class AuthService implements OnModuleInit {
    * Admin-Only: List All CMS Users
    */
   async getAllUsers() {
-    const users = await this.userModel.find().select('-password').sort({ createdAt: -1 });
+    const users = await this.userModel
+      .find()
+      .select('-password')
+      .sort({ createdAt: -1 });
     return {
       success: true,
       count: users.length,
@@ -412,7 +471,9 @@ export class AuthService implements OnModuleInit {
    */
   async deleteUser(id: string, currentUserId: string) {
     if (id === currentUserId) {
-      throw new BadRequestException('You cannot delete your own administrative account.');
+      throw new BadRequestException(
+        'You cannot delete your own administrative account.',
+      );
     }
 
     const user = await this.userModel.findByIdAndDelete(id);
@@ -429,18 +490,39 @@ export class AuthService implements OnModuleInit {
   /**
    * Send High-Security Branded OTP Email via Nodemailer
    */
-  private async sendOtpEmail(to: string, otp: string, userName: string, loginEmail: string) {
+  private async sendOtpEmail(
+    to: string,
+    otp: string,
+    userName: string,
+    loginEmail: string,
+  ) {
     try {
-      let mailUser = (this.configService.get<string>('MAIL_USER') || process.env.MAIL_USER || '').trim();
-      let mailPass = (this.configService.get<string>('MAIL_PASS') || process.env.MAIL_PASS || '').trim();
+      let mailUser = (
+        this.configService.get<string>('MAIL_USER') ||
+        process.env.MAIL_USER ||
+        ''
+      ).trim();
+      let mailPass = (
+        this.configService.get<string>('MAIL_PASS') ||
+        process.env.MAIL_PASS ||
+        ''
+      ).trim();
 
       // Ensure verified active SMTP credentials are used even if live server .env is outdated
-      if (!mailUser || !mailPass || mailUser === 'hiverift@gmail.com' || mailPass === 'mduyjcgftdzqkrvg' || mailPass === 'dxookwmflamkcyhb') {
+      if (
+        !mailUser ||
+        !mailPass ||
+        mailUser === 'hiverift@gmail.com' ||
+        mailPass === 'mduyjcgftdzqkrvg' ||
+        mailPass === 'dxookwmflamkcyhb'
+      ) {
         mailUser = 'ravi182036@gmail.com';
         mailPass = 'qppdwgxuauxkrfxw';
       }
 
-      this.logger.log(`📧 [Nodemailer] Dispatching 2FA OTP to ${to} using SMTP sender: ${mailUser}`);
+      this.logger.log(
+        `📧 [Nodemailer] Dispatching 2FA OTP to ${to} using SMTP sender: ${mailUser}`,
+      );
 
       const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
@@ -530,9 +612,14 @@ export class AuthService implements OnModuleInit {
         html: htmlContent,
       });
 
-      this.logger.log(`📧 [Nodemailer] Successfully delivered 2FA OTP to ${to}`);
+      this.logger.log(
+        `📧 [Nodemailer] Successfully delivered 2FA OTP to ${to}`,
+      );
     } catch (error: any) {
-      this.logger.error(`❌ [SMTP Error] Failed to send OTP to ${to}:`, error?.message || error);
+      this.logger.error(
+        `❌ [SMTP Error] Failed to send OTP to ${to}:`,
+        error?.message || error,
+      );
     }
   }
 }

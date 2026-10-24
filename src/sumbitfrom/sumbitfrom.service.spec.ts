@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import {SubmitFromService } from './sumbitfrom.service';
+import { SubmitFromService } from './sumbitfrom.service';
 
 describe('SumbitfromService', () => {
   let service: SubmitFromService;

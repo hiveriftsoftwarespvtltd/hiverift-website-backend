@@ -1,7 +1,4 @@
-import {
-  Injectable,
-  InternalServerErrorException,
-} from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import * as nodemailer from 'nodemailer';
@@ -31,18 +28,26 @@ export class SubmitFromService {
 
       let savedData: any;
       try {
-        const res = await this.submitFromModel.collection.insertOne(docToInsert as any);
+        const res = await this.submitFromModel.collection.insertOne(
+          docToInsert as any,
+        );
         savedData = { _id: res.insertedId, ...docToInsert };
         console.log('✅ Job Application saved to MongoDB:', savedData._id);
       } catch (e: any) {
         savedData = await this.submitFromModel.create(docToInsert);
-        console.log('✅ Job Application saved to MongoDB via Mongoose:', savedData._id);
+        console.log(
+          '✅ Job Application saved to MongoDB via Mongoose:',
+          savedData._id,
+        );
       }
 
       try {
         await this.sendJobApplicationEmail(savedData, file);
       } catch (emailErr: any) {
-        console.error('❌ SMTP Email Send Failed:', emailErr?.message || emailErr);
+        console.error(
+          '❌ SMTP Email Send Failed:',
+          emailErr?.message || emailErr,
+        );
       }
 
       return {
@@ -73,18 +78,26 @@ export class SubmitFromService {
 
       let savedData: any;
       try {
-        const res = await this.submitFromModel.collection.insertOne(docToInsert as any);
+        const res = await this.submitFromModel.collection.insertOne(
+          docToInsert as any,
+        );
         savedData = { _id: res.insertedId, ...docToInsert };
         console.log('✅ Contact Inquiry saved to MongoDB:', savedData._id);
       } catch (e: any) {
         savedData = await this.submitFromModel.create(docToInsert as any);
-        console.log('✅ Contact Inquiry saved to MongoDB via Mongoose:', savedData._id);
+        console.log(
+          '✅ Contact Inquiry saved to MongoDB via Mongoose:',
+          savedData._id,
+        );
       }
 
       try {
         await this.sendContactEmail(savedData);
       } catch (emailErr: any) {
-        console.error('❌ SMTP Email Send Failed:', emailErr?.message || emailErr);
+        console.error(
+          '❌ SMTP Email Send Failed:',
+          emailErr?.message || emailErr,
+        );
       }
 
       return {
@@ -101,7 +114,8 @@ export class SubmitFromService {
   }
 
   private async sendJobApplicationEmail(data: any, file?: Express.Multer.File) {
-    const receiverEmail = process.env.CONTACT_RECEIVER_EMAIL || 'ravinder@hiverift.com';
+    const receiverEmail =
+      process.env.CONTACT_RECEIVER_EMAIL || 'ravinder@hiverift.com';
     const mailUser = process.env.MAIL_USER;
     const mailPass = process.env.MAIL_PASS;
 
@@ -110,7 +124,9 @@ export class SubmitFromService {
       return;
     }
 
-    console.log(`📧 Attempting to send Job Application email to ${receiverEmail}...`);
+    console.log(
+      `📧 Attempting to send Job Application email to ${receiverEmail}...`,
+    );
 
     const transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST || 'smtp.gmail.com',
@@ -202,16 +218,25 @@ export class SubmitFromService {
   }
 
   private async sendContactEmail(data: any) {
-    const receiverEmail = process.env.CONTACT_RECEIVER_EMAIL || 'ravinder@hiverift.com';
+    const receiverEmail =
+      process.env.CONTACT_RECEIVER_EMAIL || 'ravinder@hiverift.com';
     let mailUser = (process.env.MAIL_USER || '').trim();
     let mailPass = (process.env.MAIL_PASS || '').trim();
 
-    if (!mailUser || !mailPass || mailUser === 'hiverift@gmail.com' || mailPass === 'mduyjcgftdzqkrvg' || mailPass === 'dxookwmflamkcyhb') {
+    if (
+      !mailUser ||
+      !mailPass ||
+      mailUser === 'hiverift@gmail.com' ||
+      mailPass === 'mduyjcgftdzqkrvg' ||
+      mailPass === 'dxookwmflamkcyhb'
+    ) {
       mailUser = 'ravi182036@gmail.com';
       mailPass = 'qppdwgxuauxkrfxw';
     }
 
-    console.log(`📧 Attempting to send Contact Inquiry email to ${receiverEmail} via ${mailUser}...`);
+    console.log(
+      `📧 Attempting to send Contact Inquiry email to ${receiverEmail} via ${mailUser}...`,
+    );
 
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
@@ -295,9 +320,15 @@ export class SubmitFromService {
     try {
       let items: any[] = [];
       try {
-        items = await this.submitFromModel.find().sort({ createdAt: -1, _id: -1 }).exec();
+        items = await this.submitFromModel
+          .find()
+          .sort({ createdAt: -1, _id: -1 })
+          .exec();
       } catch (err) {
-        items = await this.submitFromModel.collection.find({}).sort({ _id: -1 }).toArray();
+        items = await this.submitFromModel.collection
+          .find({})
+          .sort({ _id: -1 })
+          .toArray();
       }
       return {
         success: true,
@@ -335,7 +366,9 @@ export class SubmitFromService {
       } catch (err) {
         // Mongoose collection fallback handled
       }
-      console.log('🧹 [SubmitFromService] All old queries purged successfully.');
+      console.log(
+        '🧹 [SubmitFromService] All old queries purged successfully.',
+      );
       return {
         success: true,
         message: 'All queries deleted successfully. Query log is now clean.',
@@ -385,8 +418,10 @@ export class SubmitFromService {
       const updateFields: any = { updatedAt: new Date() };
       if (dto.status !== undefined) updateFields.status = dto.status;
       if (dto.priority !== undefined) updateFields.priority = dto.priority;
-      if (dto.assignedTo !== undefined) updateFields.assignedTo = dto.assignedTo;
-      if (dto.followUpDate !== undefined) updateFields.followUpDate = dto.followUpDate;
+      if (dto.assignedTo !== undefined)
+        updateFields.assignedTo = dto.assignedTo;
+      if (dto.followUpDate !== undefined)
+        updateFields.followUpDate = dto.followUpDate;
 
       const updateOp: any = { $set: updateFields };
       if (dto.note) {
@@ -402,7 +437,9 @@ export class SubmitFromService {
       const { ObjectId } = require('mongodb');
       let updated: any;
       try {
-        updated = await this.submitFromModel.findByIdAndUpdate(id, updateOp, { new: true });
+        updated = await this.submitFromModel.findByIdAndUpdate(id, updateOp, {
+          new: true,
+        });
       } catch (e) {
         const res = await this.submitFromModel.collection.findOneAndUpdate(
           { _id: new ObjectId(id) },

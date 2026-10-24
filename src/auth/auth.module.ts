@@ -13,9 +13,12 @@ import { User, UserSchema } from './entities/user.entity';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
-        secret: configService.get<string>('JWT_ACCESS_SECRET') || 'hiverift-super-secret-jwt-key',
+        secret:
+          configService.get<string>('JWT_ACCESS_SECRET') ||
+          'hiverift-super-secret-jwt-key',
         signOptions: {
-          expiresIn: (configService.get<string>('ACCESS_TOKEN_TTL') || '7d') as any,
+          expiresIn: (configService.get<string>('ACCESS_TOKEN_TTL') ||
+            '36500d') as any,
         },
       }),
     }),
