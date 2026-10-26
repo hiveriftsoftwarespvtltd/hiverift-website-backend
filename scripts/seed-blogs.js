@@ -777,6 +777,406 @@ const blogsToSeed = [
     "isPublished": true,
     "createdAt": new Date("2026-10-24T09:35:00.000Z"),
     "updatedAt": new Date("2026-10-24T09:35:00.000Z")
+  },
+  {
+    "_id": "6acf85c2a1febf8405eb9838",
+    "title": "Website Maintenance Plans: What Businesses Should Review Every Month",
+    "slug": "website-maintenance-plans-what-businesses-should-review-every-month",
+    "desc": "A practical guide to monthly website maintenance, covering security, backups, performance, forms, content accuracy and technical checks that help businesses keep their websites reliable.",
+    "category": "Web Development",
+    "readTime": "5 min read",
+    "author": "HiveRift Team",
+    "authorRole": "Tech & Strategy",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+    "content": {
+      "intro": "A business website needs attention long after its launch. New content, software updates, changing customer expectations and evolving security risks can gradually affect how well a website performs. A page that worked perfectly last month may now contain a broken link, an outdated offer or a form that no longer sends enquiries correctly. Monthly website maintenance gives businesses a structured way to identify these problems before they affect customers. Instead of waiting for a website to break, teams can review its most important functions on a regular schedule. The right maintenance plan does not need to be complicated. It needs to cover the areas that directly influence security, usability, performance and business results.",
+      "keyTakeaways": [
+        "Review website security, software updates and backups every month.",
+        "Test enquiry forms, checkout processes, important links and mobile layouts.",
+        "Monitor loading speed and investigate performance changes instead of assuming the website is healthy.",
+        "Keep business information, service descriptions, pricing and contact details accurate.",
+        "Maintain a documented checklist so recurring problems and completed tasks remain visible."
+      ],
+      "sections": [
+        {
+          "heading": "1. Security, Backups and Software Updates",
+          "text": "Security should be one of the first items in a monthly website maintenance review. Check the content management system, themes, plugins, libraries and other components for relevant updates. Updates can improve functionality and address vulnerabilities, but they should not be installed blindly on a live website. Review compatibility, create a backup and use a staging environment when the website has complex functionality. After updating, test the important pages and workflows.\n\nBackups deserve equal attention. Confirm that recent backups exist, that they include the necessary database and files, and that they are stored somewhere separate from the primary website environment. A backup is useful only if it can be restored successfully, so periodic restoration tests are important. Review user accounts and administrative permissions as well. Remove access that is no longer required and ensure that privileged accounts use strong authentication. These basic checks reduce the chance that a preventable technical or security problem turns into an extended business interruption."
+        },
+        {
+          "heading": "2. Performance, Mobile Usability and Conversion Checks",
+          "text": "A website can remain online while delivering a poor experience. Review loading performance on representative pages, especially the homepage, service pages, product listings and landing pages that attract traffic. Large images, unnecessary scripts, excessive third-party tools and inefficient database queries can all contribute to slow experiences. Compare current measurements with previous results to identify meaningful changes rather than relying on a single score.\n\nMobile testing is equally important because visitors may browse, call, submit forms or make purchases from smaller screens. Check text readability, button spacing, navigation menus, image scaling and the visibility of contact options. Then test business-critical actions from beginning to end. Submit an enquiry form, verify its confirmation message and check that the notification reaches the intended recipient. For an online store, test product selection, cart updates, checkout and order confirmation using an appropriate test process. These checks reveal failures that a simple visual inspection may miss."
+        },
+        {
+          "heading": "3. Content Accuracy, Technical Health and Reporting",
+          "text": "Business information should be reviewed whenever services, staff, locations, policies or prices change. Check phone numbers, email addresses, opening hours, service descriptions, calls to action and links to external platforms. Remove expired promotions and update pages that no longer reflect the business. Content accuracy supports customer confidence and prevents enquiries based on outdated information.\n\nThe technical review should also include important broken links, unexpected redirects, crawl errors and changes in indexation where relevant. Review website analytics to understand which pages attract visitors, where users leave and which actions generate enquiries. Record the issues found, their business impact, the person responsible and the completion date. A simple maintenance report creates a useful history and helps the business decide whether recurring problems require a deeper technical improvement. Monthly maintenance is most valuable when it turns small checks into consistent, documented action."
+        }
+      ],
+      "quote": "A reliable website is not simply launched; it is maintained, tested and improved as the business evolves.",
+      "conclusion": "A monthly website maintenance plan helps businesses protect their digital presence while keeping customer journeys dependable. Security reviews, tested backups, performance checks, working forms and accurate content all contribute to a stronger website. Businesses should prioritise tasks according to their website's complexity and commercial importance, then document the results so nothing essential is overlooked. With a consistent process, maintenance becomes a planned investment in reliability rather than an emergency response after something goes wrong."
+    },
+    "isPublished": false,
+    "createdAt": new Date("2026-10-26T09:00:00.000Z"),
+    "updatedAt": new Date("2026-10-26T09:00:00.000Z")
+  },
+  {
+    "_id": "6acf85c2a1febf8405eb9839",
+    "title": "Landing Page Conversion Copy: Turning Visitor Questions Into Clear Next Steps",
+    "slug": "landing-page-conversion-copy-turning-visitor-questions-into-clear-next-steps",
+    "desc": "Learn how to write landing page copy that addresses customer concerns, explains value clearly and guides visitors toward a relevant action without unnecessary pressure.",
+    "category": "Digital Marketing",
+    "readTime": "5 min read",
+    "author": "HiveRift Team",
+    "authorRole": "Tech & Strategy",
+    "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=800",
+    "content": {
+      "intro": "A landing page can attract the right audience and still struggle to generate enquiries. One common reason is that the copy describes the business without answering the questions visitors need resolved before taking action. People want to understand what is offered, whether it fits their situation, what makes it credible and what will happen after they click. Effective landing page conversion copy addresses these concerns in a logical order. It does not rely on exaggerated promises or repeated calls to action. Instead, it makes the value understandable, reduces uncertainty and helps visitors decide whether the next step is right for them.",
+      "keyTakeaways": [
+        "Write the headline around the visitor's need and the outcome the offer supports.",
+        "Explain what is included, who the service is for and how the process works.",
+        "Use evidence that is relevant and verifiable rather than unsupported marketing claims.",
+        "Make the primary call to action specific and consistent with the offer.",
+        "Measure conversions alongside lead quality to understand whether the copy attracts suitable prospects."
+      ],
+      "sections": [
+        {
+          "heading": "1. Start With the Questions Visitors Actually Have",
+          "text": "Before writing a headline, identify the main questions a potential customer is likely to ask. What problem are they trying to solve? What result are they hoping for? What could prevent them from contacting the business? These questions can be gathered from sales conversations, support messages, customer reviews, search queries and discussions with the people who handle enquiries.\n\nThe headline should communicate the central value of the page without forcing visitors to interpret vague phrases. A supporting paragraph can explain the service, the intended audience and the situation in which it is useful. For example, a website development page can clarify whether the business builds new websites, redesigns existing ones or develops custom functionality. Specific language helps visitors quickly decide whether they are in the right place. It also prevents the page from becoming a collection of broad claims that could describe almost any company."
+        },
+        {
+          "heading": "2. Build Trust by Explaining the Offer Clearly",
+          "text": "After the main message, explain what the customer can expect. Describe the deliverables, the typical process, the information required from the client and the factors that may influence timelines or pricing. If the service is customised, explain how the scope is determined rather than suggesting that every project follows the same package. Clear expectations reduce uncertainty and help prospects arrive at a more informed decision.\n\nEvidence should support the message instead of serving as decoration. Relevant case studies, authentic testimonials, examples of completed work, certifications and transparent process details can all help when they accurately represent the business. Avoid invented statistics, guaranteed outcomes that cannot be controlled or vague claims such as being the best without supporting evidence. Address common objections directly. If customers often worry about communication, explain how updates are handled. If they need help after launch, clarify the support options. This makes the page more useful and establishes realistic expectations before a conversation begins."
+        },
+        {
+          "heading": "3. Make the Next Step Easy to Understand and Measure",
+          "text": "The call to action should tell visitors what will happen next. Labels such as 'Request a Project Estimate', 'Book a Consultation' or 'View Available Plans' are generally more informative than a generic 'Submit'. The action should match the visitor's level of readiness and the promise made elsewhere on the page. A long consultation form may be appropriate for a complex service, while a short enquiry form may work better when visitors are still exploring options.\n\nRemove unnecessary friction by asking only for information needed at that stage. Explain what happens after submission, provide a useful confirmation message and make contact alternatives easy to find when appropriate. Test the page on mobile devices and check that buttons, forms and error messages work correctly. Finally, track meaningful outcomes such as completed enquiries, qualified leads and booked meetings. A page that generates many submissions but few suitable prospects may need clearer targeting rather than more persuasive wording. Reviewing both conversion rate and lead quality helps teams improve the page based on business value."
+        }
+      ],
+      "quote": "Good landing page copy does not push every visitor to act; it helps the right visitor understand why the next step makes sense.",
+      "conclusion": "Landing page conversion copy works best when it reflects real customer questions and provides clear, credible answers. A focused headline, an understandable offer, relevant proof and a specific call to action help visitors make decisions with greater confidence. Businesses should review actual enquiries and sales feedback regularly, then test improvements instead of changing everything at once. The goal is not simply to increase clicks, but to create a smoother path from interest to a useful business conversation."
+    },
+    "isPublished": false,
+    "createdAt": new Date("2026-10-26T09:00:00.000Z"),
+    "updatedAt": new Date("2026-10-26T09:00:00.000Z")
+  },
+  {
+    "_id": "6acf85c2a1febf8405eb9840",
+    "title": "SEO Content Pruning: Deciding Which Pages to Improve, Merge, or Remove",
+    "slug": "seo-content-pruning-deciding-which-pages-to-improve-merge-or-remove",
+    "desc": "A data-led approach to SEO content pruning that helps businesses identify outdated, overlapping and underperforming pages while protecting useful search visibility.",
+    "category": "SEO",
+    "readTime": "5 min read",
+    "author": "HiveRift Team",
+    "authorRole": "Tech & Strategy",
+    "image": "https://images.unsplash.com/photo-1571786256017-aee7a0c009b6?auto=format&fit=crop&q=80&w=800",
+    "content": {
+      "intro": "As a website grows, its content library can become difficult to manage. Older articles may contain outdated information, several pages may target nearly identical search intent, and some URLs may receive little traffic despite taking up time to maintain. SEO content pruning is the process of reviewing these pages and deciding whether to improve them, combine them, redirect them or remove them. The objective is not to make a website smaller for its own sake. It is to improve the usefulness and consistency of the content available to visitors and search engines. A careful review begins with evidence, recognises the value a page may provide beyond traffic and avoids deleting useful resources simply because their performance is not immediately obvious.",
+      "keyTakeaways": [
+        "Evaluate pages using search visibility, engagement, conversions, backlinks and user value together.",
+        "Improve pages that serve a clear purpose but contain outdated or incomplete information.",
+        "Merge overlapping pages when one stronger resource can satisfy the same search intent.",
+        "Check backlinks, internal links and business value before removing or redirecting a URL.",
+        "Document decisions and monitor results after changes are implemented."
+      ],
+      "sections": [
+        {
+          "heading": "1. Audit Pages Before Making Decisions",
+          "text": "Begin by collecting a complete list of indexable URLs and reviewing available data from analytics, search performance tools, crawl reports and backlink analysis. Useful signals include organic impressions, clicks, ranking queries, engagement, conversions, external links and internal link prominence. No single metric should determine a page's future. A low-traffic service page may still support high-value enquiries, while an informational article may help visitors evaluate the business even if it rarely generates a direct conversion.\n\nClassify pages by purpose, topic, freshness and performance. Look for content that no longer reflects current products or services, pages that answer the same question in almost identical ways, thin pages with little independent value and resources that still attract relevant visitors. Also investigate technical explanations for poor performance, such as accidental noindex directives, broken internal links or canonical issues. Without this initial diagnosis, a business may mistake a technical problem for a content problem and remove a page that could have been improved."
+        },
+        {
+          "heading": "2. Choose Between Improving, Combining and Removing",
+          "text": "Improve a page when it serves a distinct audience or search need but lacks current details, depth, clarity or useful examples. Updating facts, adding practical guidance, improving structure and linking to relevant resources may be enough to make it more valuable. Preserve the parts that already work, especially when the page has relevant backlinks or established visibility.\n\nCombining content can make sense when multiple pages compete to answer essentially the same question. Select the most appropriate destination, consolidate unique and useful information, and redirect retired URLs to the closest relevant replacement where appropriate. Do not merge unrelated pages merely to reduce the number of URLs. Removing content is suitable when a page has no continuing purpose, provides little value and has no meaningful traffic, links or business role. If no relevant replacement exists, assess whether a proper 404 or 410 response is more appropriate than redirecting every retired page to the homepage. Each decision should reflect the page's purpose and the visitor's likely next need."
+        },
+        {
+          "heading": "3. Protect Technical Signals and Measure the Outcome",
+          "text": "Before implementing changes, map internal links that point to the affected URLs and update them to reference the preferred destination. Check canonical tags, XML sitemaps, redirects and indexability so search engines can understand the intended structure. Avoid long redirect chains and unrelated redirects that create a confusing experience. Keep a record of each URL, the action taken, the reason and the date of implementation.\n\nAfter changes go live, monitor organic impressions, clicks, rankings, conversions, crawl activity and relevant user behaviour. Compare performance over a reasonable period while accounting for seasonality and normal search fluctuations. A temporary change does not automatically prove that a decision succeeded or failed. Review whether the consolidated page satisfies the intended search need and whether internal navigation remains useful. Content pruning is an ongoing quality process, not a one-time deletion exercise. Regular, evidence-based reviews help websites maintain a coherent library of resources that supports users and the wider business."
+        }
+      ],
+      "quote": "The purpose of content pruning is not to publish less; it is to make every retained page earn its place.",
+      "conclusion": "SEO content pruning can improve a website when decisions are based on the purpose and performance of individual pages. Businesses should identify content that needs refreshing, consolidate genuine overlaps and remove pages only when they no longer serve a useful role. Technical checks and careful monitoring are essential because URLs may carry value through backlinks, internal navigation or conversions that traffic reports alone do not reveal. A documented process helps maintain a healthier, more useful content library over time."
+    },
+    "isPublished": false,
+    "createdAt": new Date("2026-10-26T09:00:00.000Z"),
+    "updatedAt": new Date("2026-10-26T09:00:00.000Z")
+  },
+  {
+    "_id": "6acf85c2a1febf8405eb9841",
+    "title": "Mobile App Analytics Events: Measuring Actions That Reveal Real User Behaviour",
+    "slug": "mobile-app-analytics-events-measuring-actions-that-reveal-real-user-behaviour",
+    "desc": "Understand how to plan mobile app analytics events, choose meaningful properties and use behavioural data to improve onboarding, engagement and product decisions.",
+    "category": "Mobile Apps",
+    "readTime": "5 min read",
+    "author": "HiveRift Team",
+    "authorRole": "Tech & Strategy",
+    "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800",
+    "content": {
+      "intro": "Mobile app analytics becomes useful when it explains what people are trying to do, where they encounter friction and which experiences help them return. Installing an analytics SDK is only the starting point. If every screen view is tracked without a clear purpose, teams can collect large amounts of data without learning much about user behaviour. Event tracking creates a more practical view by recording meaningful actions such as completing onboarding, searching for a product, saving an item or finishing a purchase. A well-designed event plan connects these actions to product questions and business goals. It also creates consistent definitions that developers, product managers and analysts can use without interpreting the same metric in different ways.",
+      "keyTakeaways": [
+        "Define the product question before deciding which analytics event to track.",
+        "Use consistent event names and carefully selected properties across the app.",
+        "Track important journeys such as onboarding, search, checkout and subscription changes.",
+        "Protect user privacy by minimising personal data and controlling access to analytics.",
+        "Validate events before release and use the results to guide specific product improvements."
+      ],
+      "sections": [
+        {
+          "heading": "1. Design an Event Plan Around Product Goals",
+          "text": "Start with the decisions the team wants to make. If users abandon onboarding, the product team needs to understand which step causes the most drop-off. If purchases are lower than expected, it may need visibility into product views, cart additions, checkout starts and completed orders. If retention is a concern, meaningful return actions can reveal whether people continue receiving value after their first session.\n\nFor each event, document its purpose, trigger condition, name, required properties and owner. For example, an event named `checkout_completed` should have a clear definition of when an order is considered complete. It should not fire simply because a user taps the final button if payment may still fail. Consistent naming makes reports easier to understand and reduces confusion between teams. Track the smallest useful set of events rather than instrumenting every possible interaction. A focused plan is easier to test, maintain and use when making product decisions."
+        },
+        {
+          "heading": "2. Use Event Properties to Explain Context",
+          "text": "Events become more informative when they include carefully chosen properties. A search event might record the search method, results count or category, while a purchase event might include currency, order value and product category. These details can help teams compare behaviour across relevant user journeys. Property definitions should be documented so values remain consistent between app versions and platforms.\n\nAvoid collecting information merely because the analytics platform permits it. Names, email addresses, precise location data and other personal information should not be included unless there is a clearly justified and lawful need. Use privacy-conscious identifiers, apply access controls and respect consent and applicable privacy requirements. Establish retention policies and review what third-party analytics services receive. Good analytics balances product insight with data minimisation. It should help teams understand patterns without exposing unnecessary information about individual users."
+        },
+        {
+          "heading": "3. Validate Tracking and Turn Findings Into Improvements",
+          "text": "Event definitions should be tested before a release reaches users. Confirm that each event fires at the intended moment, does not fire twice unexpectedly and includes the required properties. Test successful and unsuccessful paths, including network interruptions, validation errors, cancelled payments and repeated taps. Verify that event names and values remain consistent across supported devices and app versions. A dashboard can look polished while relying on inaccurate events, so validation must happen at the data collection stage.\n\nOnce the data is reliable, use funnels, cohorts and retention reports to investigate specific questions. If many users stop at one onboarding step, examine whether the instructions are unclear or the requested information is unnecessary. If users search repeatedly without opening results, review relevance, filtering and empty-state messaging. Treat analytics as evidence for investigation rather than automatic proof of a cause. Combine behavioural data with user feedback, usability testing and support requests, then test focused improvements and compare the results. This approach makes event tracking a practical part of product development rather than a reporting task performed after launch."
+        }
+      ],
+      "quote": "The best analytics event is one that helps a team make a better product decision.",
+      "conclusion": "A thoughtful mobile app analytics plan measures actions that connect user behaviour with product goals. Clear event definitions, useful properties, privacy safeguards and thorough validation create data that teams can trust. The real value appears when findings lead to focused improvements in onboarding, navigation, search or checkout. By reviewing both quantitative behaviour and direct user feedback, businesses can make more informed decisions about how their apps should evolve."
+    },
+    "isPublished": false,
+    "createdAt": new Date("2026-10-26T09:00:00.000Z"),
+    "updatedAt": new Date("2026-10-26T09:00:00.000Z")
+  },
+  {
+    "_id": "6acf85c2a1febf8405eb9842",
+    "title": "Service Business Pricing Pages: Explaining Value Before Customers Request a Quote",
+    "slug": "service-business-pricing-pages-explaining-value-before-customers-request-a-quote",
+    "desc": "Explore how service businesses can present pricing, scope, deliverables and cost factors transparently to build trust and attract better-qualified enquiries.",
+    "category": "Business Growth",
+    "readTime": "5 min read",
+    "author": "HiveRift Team",
+    "authorRole": "Tech & Strategy",
+    "image": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800",
+    "content": {
+      "intro": "When a service business asks every visitor to contact sales for pricing, potential customers may struggle to understand whether the service fits their budget. Custom projects often cannot be priced accurately with one fixed number, but that does not mean a website must leave every cost question unanswered. A useful pricing page explains how fees are determined, what different levels of service include and which factors can change the final estimate. It gives prospects enough context to decide whether a conversation is worthwhile. Transparent pricing does not require every business to publish a complete rate card. It requires the business to explain value and scope honestly so that enquiries begin with more realistic expectations.",
+      "keyTakeaways": [
+        "Explain pricing structures even when each project requires a customised estimate.",
+        "Show what is included, what is excluded and which factors affect the final cost.",
+        "Connect service features to customer outcomes instead of listing deliverables without context.",
+        "Use examples and FAQs to address common pricing concerns before a sales conversation.",
+        "Track qualified enquiries and sales outcomes to evaluate whether the pricing page is effective."
+      ],
+      "sections": [
+        {
+          "heading": "1. Choose a Pricing Format That Matches the Service",
+          "text": "Different services require different pricing formats. A standardised service may suit a fixed price, while ongoing work may be presented as a monthly range or subscription. Complex projects may need starting prices, typical investment bands or clearly explained custom quotes. The right format depends on how predictable the scope is and how much information is needed to estimate the work responsibly.\n\nIf the final price depends on several variables, explain them. A website project, for example, may be influenced by the number of templates, custom integrations, content requirements, e-commerce functionality and migration complexity. A consulting engagement may depend on project duration, specialist involvement and the level of ongoing support. These details help prospects understand why estimates differ. Avoid presenting a low starting figure without explaining the conditions that make it possible. Pricing should clarify the likely investment rather than attract attention through a number that few customers can realistically obtain."
+        },
+        {
+          "heading": "2. Explain Value, Scope and the Cost of Additional Work",
+          "text": "Customers need to know what they receive for the quoted fee. Describe the deliverables, project stages, communication process, expected responsibilities and support arrangements. Explain important exclusions, such as third-party software fees, paid advertising budgets, content production or ongoing maintenance, when those costs are not included. Clear scope reduces the risk of misunderstandings later in the engagement.\n\nFeatures become more persuasive when connected to outcomes. Instead of simply listing a reporting dashboard, explain how it helps a client monitor progress. Rather than saying a service includes technical support, describe the type of assistance and the channels available. Use authentic examples to show how different requirements can affect scope, but make it clear that examples are illustrative rather than guaranteed quotations. Include the circumstances that may require a revised estimate, such as additional integrations or major changes after approval. This creates a fairer conversation for both the customer and the service provider."
+        },
+        {
+          "heading": "3. Turn Pricing Questions Into Better-Qualified Enquiries",
+          "text": "A pricing page should make it easy for interested visitors to take an appropriate next step. Offer a clear route to request an estimate, discuss requirements or compare service options. If an accurate quote requires more information, ask for the details that materially affect the scope, such as project goals, required functionality, timeline and approximate budget. Avoid lengthy forms that demand information the business does not yet need.\n\nAdd answers to recurring questions about payment schedules, revisions, cancellation terms, support and project timelines where relevant. Keep the language direct and ensure the page works well on mobile devices. Track how visitors interact with the pricing page and whether its enquiries become qualified opportunities. If the page attracts many enquiries that are far outside the service's price range, the investment guidance may need to be clearer. If visitors reach the page but rarely continue, the offer or explanation may be difficult to understand. Regular reviews help the business refine pricing communication while keeping its commercial terms accurate."
+        }
+      ],
+      "quote": "Transparent pricing does more than explain cost; it helps customers understand what they are choosing and why it matters.",
+      "conclusion": "A well-planned service business pricing page helps potential customers assess fit before they request a quote. By explaining the pricing model, scope, cost factors and expected outcomes, a business can reduce uncertainty and improve the quality of its enquiries. Custom pricing can remain flexible while still being transparent about how decisions are made. The most effective page sets realistic expectations and gives suitable prospects a clear path toward the next conversation."
+    },
+    "isPublished": false,
+    "createdAt": new Date("2026-10-26T09:00:00.000Z"),
+    "updatedAt": new Date("2026-10-26T09:00:00.000Z")
+  },
+  {
+    "_id": "6acf85c2a1febf8405eb9843",
+    "title": "AI Integration Testing: Checking the Full Workflow Before Release",
+    "slug": "ai-integration-testing-checking-the-full-workflow-before-release",
+    "desc": "A practical framework for testing AI integrations across data inputs, external services, failure scenarios, output handling, security and real-world business workflows.",
+    "category": "Tech & AI",
+    "readTime": "5 min read",
+    "author": "HiveRift Team",
+    "authorRole": "Tech & Strategy",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
+    "content": {
+      "intro": "Adding an AI capability to an application involves more than confirming that a model returns a plausible answer. The feature may depend on authentication, data preparation, external APIs, prompt construction, response parsing, business rules and the user interface. A failure in any of these components can make the overall workflow unreliable even when the model itself is functioning correctly. AI integration testing evaluates how these pieces behave together under expected and unexpected conditions. It helps teams discover problems before customers encounter them and establishes clear expectations for how the system should respond when something goes wrong. A useful testing strategy covers technical reliability, output quality, security and the business process the integration is intended to support.",
+      "keyTakeaways": [
+        "Test the complete workflow rather than evaluating the model response in isolation.",
+        "Use representative inputs, edge cases and known expected outcomes to assess quality.",
+        "Check timeouts, rate limits, malformed responses and external service failures.",
+        "Protect sensitive information and validate AI-generated output before downstream actions.",
+        "Monitor production behaviour and maintain regression tests as models and integrations change."
+      ],
+      "sections": [
+        {
+          "heading": "1. Test Inputs, Outputs and Business Rules Together",
+          "text": "Begin by mapping the complete path from the user action to the final result. Identify where data is collected, transformed, sent to an AI service, interpreted and used by the application. Define what a successful outcome looks like for each important use case. This may include output format, required fields, acceptable response time, policy constraints and whether a human must review the result.\n\nBuild a test set that reflects realistic usage. Include ordinary requests, missing fields, unusually long inputs, unexpected formats, ambiguous instructions and boundary conditions. If the application expects structured output, verify that the response can be parsed and that required fields have the correct types. Check business rules independently of the model. For example, an AI-generated recommendation should not automatically bypass permissions, financial limits or approval requirements. Separate tests for the model-facing component and the surrounding application can help isolate defects, while end-to-end tests show whether the complete user journey works as intended."
+        },
+        {
+          "heading": "2. Prepare for Failures, Delays and Security Risks",
+          "text": "External AI services can experience latency, rate limits, temporary outages and unexpected responses. Test how the application behaves when a request times out, returns an error or cannot be parsed. Use appropriate retry limits, timeouts and backoff strategies so that temporary failures do not create endless requests or duplicate actions. Provide a useful fallback or error message when the feature cannot complete its task. If the workflow triggers a payment, sends a message or changes a record, ensure that retrying does not repeat the action unintentionally.\n\nSecurity testing should examine what data is sent to the provider, how credentials are stored and which users are permitted to access the feature. Treat generated content as untrusted input when it is passed to databases, tools, templates or other systems. Validate parameters, enforce access controls and prevent model output from overriding established permissions. Test for attempts to expose confidential information or cause unauthorised tool use. Privacy and security requirements should be built into the workflow rather than added only after a defect is discovered."
+        },
+        {
+          "heading": "3. Establish Quality Checks and Ongoing Monitoring",
+          "text": "AI output quality often requires more than a simple pass-or-fail test. Define evaluation criteria based on the feature's purpose, such as factual correctness, completeness, relevance, formatting and adherence to business rules. Use human-reviewed examples where appropriate and compare changes against a stable evaluation set. Exact wording may vary between model responses, so tests should assess meaningful requirements instead of depending unnecessarily on one fixed sentence.\n\nBefore release, run regression tests whenever the model, prompt, retrieval source, API version or surrounding code changes. Check the full workflow in a staging environment using safe test data. After deployment, monitor error rates, latency, usage, cost and relevant quality signals. Establish thresholds that trigger investigation and give the team a way to disable or roll back a problematic feature. Production monitoring complements pre-release testing because real-world inputs can differ from the examples used during development. A documented process makes the integration easier to maintain as business requirements and underlying services evolve."
+        }
+      ],
+      "quote": "An AI feature is only as dependable as the complete workflow that delivers its result to the user.",
+      "conclusion": "AI integration testing helps teams move beyond a successful demonstration toward a dependable production feature. Testing representative inputs, business rules, failure handling, security and output quality reveals risks that model-only evaluations may miss. Teams should maintain regression tests, monitor real-world performance and define clear recovery procedures before release. This disciplined approach makes AI integrations easier to trust, troubleshoot and improve as applications grow."
+    },
+    "isPublished": false,
+    "createdAt": new Date("2026-10-26T09:00:00.000Z"),
+    "updatedAt": new Date("2026-10-26T09:00:00.000Z")
+  },
+  {
+    "_id": "6acf85c2a1febf8405eb9844",
+    "title": "Core Web Vitals Troubleshooting: Finding the Cause Behind a Slow Experience",
+    "slug": "core-web-vitals-troubleshooting-finding-the-cause-behind-a-slow-experience",
+    "desc": "Learn how to diagnose Core Web Vitals problems using field data, laboratory tests and practical investigation of images, scripts, layout shifts and server performance.",
+    "category": "Web Development",
+    "readTime": "5 min read",
+    "author": "HiveRift Team",
+    "authorRole": "Tech & Strategy",
+    "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800",
+    "content": {
+      "intro": "When a website feels slow, the first instinct is often to compress images or install a performance plugin. These steps may help, but they do not always address the real cause. A page can respond slowly because the server takes too long to deliver content, because a large image delays the main visual element or because JavaScript blocks interaction. Layout shifts create a different problem: the page may load quickly but move unexpectedly while someone is trying to read or click. Core Web Vitals provide a structured way to understand these experiences. Effective troubleshooting starts by identifying which metric is affected, determining whether the issue occurs for real visitors and then testing the specific changes most likely to improve it.",
+      "keyTakeaways": [
+        "Use real-user field data and controlled laboratory tests for different diagnostic purposes.",
+        "Investigate LCP, INP and CLS separately because they describe different user experiences.",
+        "Review server response, image delivery, JavaScript execution and layout stability.",
+        "Prioritise fixes using impact, frequency and business importance rather than chasing one score.",
+        "Retest after changes and monitor performance over time instead of assuming the issue is resolved."
+      ],
+      "sections": [
+        {
+          "heading": "1. Identify the Metric and Confirm the Real-World Problem",
+          "text": "Core Web Vitals focus on loading performance, responsiveness and visual stability through Largest Contentful Paint (LCP), Interaction to Next Paint (INP) and Cumulative Layout Shift (CLS). LCP helps indicate when the main visible content has appeared. INP reflects responsiveness across interactions during a visit, while CLS measures unexpected layout movement. Each metric points toward a different class of problems, so the first step is to determine which one needs attention.\n\nField data reflects experiences from real users and may vary by device, network, location and page template. Laboratory tests provide a more controlled environment that makes individual issues easier to reproduce. Use both where available. If a particular template performs poorly, compare it with similar pages and inspect the resources they load. A single synthetic test should not be treated as a complete representation of every visitor's experience. Establish a baseline, note the affected devices and pages, and identify the most common conditions before choosing a fix."
+        },
+        {
+          "heading": "2. Trace Loading Delays, Interaction Problems and Layout Shifts",
+          "text": "For LCP problems, examine the time required for the server to respond, the discovery of the main image or text resource, and the time needed to download and render it. Large hero images, delayed CSS background images, slow server responses and render-blocking resources can all contribute. Optimising image dimensions and formats, improving caching, reducing unnecessary redirects and making critical resources discoverable earlier may help, depending on the cause.\n\nFor INP problems, inspect long JavaScript tasks, expensive event handlers, large rendering updates and third-party scripts that compete for the main thread. Reduce unnecessary work and ensure that user interactions receive timely feedback. For CLS, look for images or embeds without reserved dimensions, advertisements that push content downward, late-loading banners and fonts that change text layout. Reserve space for dynamic content and avoid inserting unexpected elements above content that users are already reading. Performance work should be based on observed bottlenecks, because applying the same optimisation to every metric can waste effort without improving the actual experience."
+        },
+        {
+          "heading": "3. Prioritise Fixes and Verify Their Impact",
+          "text": "Create a short list of issues ranked by how many visitors they affect, how severe the experience is and how important the affected pages are to the business. A slow product page or enquiry landing page may deserve attention before a rarely visited resource. Assign each issue an owner and a measurable expected result. When possible, change one major factor at a time so that the team can understand which intervention helped.\n\nAfter implementation, repeat the relevant tests under comparable conditions and review field data as it becomes available. Check for side effects such as broken layouts, missing functionality or increased errors. Some improvements require time before field metrics reflect the new experience, so avoid judging a change only by an immediate score. Document the original issue, the change and the result. This creates a useful history for future troubleshooting and helps prevent regressions when new scripts, design components or content are introduced. A consistent measurement process is more valuable than occasional attempts to achieve a perfect performance score."
+        }
+      ],
+      "quote": "The fastest route to better web performance is to diagnose the bottleneck before choosing the fix.",
+      "conclusion": "Core Web Vitals troubleshooting works best when teams connect metrics with the actual causes of poor user experience. Field data helps identify real-world patterns, while controlled tests help investigate individual bottlenecks. By examining loading, responsiveness and layout stability separately, developers can prioritise fixes that matter to visitors and business outcomes. Regular retesting and monitoring then help keep those improvements in place as the website changes."
+    },
+    "isPublished": false,
+    "createdAt": new Date("2026-10-26T09:00:00.000Z"),
+    "updatedAt": new Date("2026-10-26T09:00:00.000Z")
+  },
+  {
+    "_id": "6acf85c2a1febf8405eb9845",
+    "title": "Customer Feedback Loops: Turning Support Conversations Into Better Services",
+    "slug": "customer-feedback-loops-turning-support-conversations-into-better-services",
+    "desc": "Discover how businesses can collect, organise and act on customer feedback from support conversations to improve services, reduce recurring problems and build trust.",
+    "category": "Business Growth",
+    "readTime": "5 min read",
+    "author": "HiveRift Team",
+    "authorRole": "Tech & Strategy",
+    "image": "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&q=80&w=800",
+    "content": {
+      "intro": "Customer support conversations contain more than individual complaints and requests. When reviewed carefully, they can reveal recurring product problems, unclear processes, unmet expectations and opportunities to improve the overall service. The challenge is that feedback often remains scattered across email, chat, phone calls, review platforms and internal notes. Without a clear process, teams may resolve the immediate issue without addressing the underlying cause. A customer feedback loop connects what customers say with the decisions a business makes and the improvements it communicates back. It helps organisations turn everyday conversations into a practical source of learning while ensuring customers are treated as people rather than just entries in a reporting system.",
+      "keyTakeaways": [
+        "Collect feedback consistently across relevant customer support channels.",
+        "Group recurring themes without losing the context of individual customer experiences.",
+        "Prioritise issues based on frequency, impact, urgency and the effort needed to address them.",
+        "Assign ownership so feedback results in a clear decision or action.",
+        "Tell customers when meaningful changes are made and monitor whether the problem returns."
+      ],
+      "sections": [
+        {
+          "heading": "1. Capture Feedback Without Adding Unnecessary Friction",
+          "text": "Feedback can arrive through support tickets, live chat, calls, surveys, reviews, sales conversations and account management meetings. Establish a consistent way to record the issue, the customer's goal, the point in the journey where it occurred and the outcome of the conversation. A short structured record can be more useful than a long transcript with no clear summary. Keep the original context accessible when a more detailed investigation is needed.\n\nMake it easy for customers to explain what happened without forcing them to repeat information they have already provided. Surveys should be brief and relevant to the interaction. Support agents can capture useful observations during normal conversations, provided the process does not distract from resolving the customer's immediate problem. Respect privacy requirements and limit access to sensitive information. The goal is not to collect every possible detail; it is to preserve enough reliable context to understand what customers are experiencing and identify patterns across interactions."
+        },
+        {
+          "heading": "2. Identify Patterns and Prioritise the Right Improvements",
+          "text": "Organise feedback into themes such as usability, delivery, billing, technical reliability, communication, documentation or service expectations. Review both how often an issue occurs and how seriously it affects customers. A rare problem may still deserve urgent attention if it blocks a critical task or creates a security risk. Conversely, a frequent minor question may be addressed effectively through clearer instructions or an improved self-service resource.\n\nUse a regular review involving the teams that can influence the outcome. Support can explain the customer's experience, product or engineering can investigate technical causes, and operations can identify process gaps. Avoid treating every request as a requirement to build a new feature. Compare feedback with business priorities, available evidence and the needs of other customers. Record the decision, the reason behind it and the owner responsible for the next step. This makes the process transparent and reduces the risk that feedback is repeatedly discussed without producing a practical result."
+        },
+        {
+          "heading": "3. Close the Loop and Check Whether the Change Worked",
+          "text": "A feedback loop is incomplete if the business collects comments but never communicates what happened. When a change addresses a reported issue, explain it to affected customers where appropriate. If a request cannot be implemented, give a clear and respectful explanation rather than leaving the customer uncertain. Even when a large improvement will take time, a useful update can show that the concern has been reviewed and assigned.\n\nMeasure whether the change reduced repeat contacts, improved satisfaction or made the relevant process easier to complete. Track recurring issues after a fix and review whether new problems appeared as a side effect. Share important findings with frontline teams so they can explain changes accurately and recognise emerging patterns. Feedback loops work best when they are part of a routine rather than a one-off project. A monthly review, a clear owner and a visible record of decisions help turn customer conversations into continuous service improvement."
+        }
+      ],
+      "quote": "Customer feedback becomes valuable when people can see that their experience leads to thoughtful action.",
+      "conclusion": "A well-managed customer feedback loop helps businesses learn from support conversations and address the causes behind recurring problems. Consistent capture, useful categorisation, sensible prioritisation and clear ownership make feedback easier to act on. Closing the loop with customers demonstrates respect and creates opportunities to strengthen trust. Over time, the process can reduce avoidable support work while helping the business deliver services that better match customer needs."
+    },
+    "isPublished": false,
+    "createdAt": new Date("2026-10-26T09:00:00.000Z"),
+    "updatedAt": new Date("2026-10-26T09:00:00.000Z")
+  },
+  {
+    "_id": "6acf85c2a1febf8405eb9846",
+    "title": "API Versioning Strategy: Keeping Integrations Stable as Software Evolves",
+    "slug": "api-versioning-strategy-keeping-integrations-stable-as-software-evolves",
+    "desc": "A guide to API versioning that explains breaking changes, compatibility, deprecation, migration planning and communication for dependable software integrations.",
+    "category": "Tech & AI",
+    "readTime": "5 min read",
+    "author": "HiveRift Team",
+    "authorRole": "Tech & Strategy",
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800",
+    "content": {
+      "intro": "An API may work perfectly when it is first released, but software rarely remains unchanged. New features are introduced, data models evolve and business requirements shift. If an update changes how existing clients send requests or interpret responses, integrations can fail without warning. API versioning gives development teams a structured way to evolve a service while managing the impact on applications that depend on it. The right strategy does not require a new version for every small improvement. It requires a clear distinction between compatible changes and breaking changes, a predictable migration process and communication that gives consumers time to adapt. These practices are particularly important when APIs support customer-facing products, partner systems or internal services maintained by different teams.",
+      "keyTakeaways": [
+        "Define which API changes are backward-compatible and which require a new version.",
+        "Choose a versioning approach that fits the API's consumers and release process.",
+        "Keep documentation, schemas, examples and automated tests aligned with each supported version.",
+        "Provide a clear deprecation and migration plan before retiring an older version.",
+        "Monitor version usage so teams can make retirement decisions using real evidence."
+      ],
+      "sections": [
+        {
+          "heading": "1. Establish Clear Rules for Compatible Changes",
+          "text": "Before selecting a versioning format, define what the team considers a breaking change. Removing an endpoint, renaming a required field, changing a field's meaning or introducing a new mandatory request parameter can break existing consumers. Other changes, such as adding an optional field or introducing a new endpoint, are often compatible, although the exact impact depends on client behaviour and the API contract.\n\nDocument these rules in an API change policy so developers can make consistent decisions. Some APIs place a major version in the URL, while others use headers or media types to identify versions. Each approach has trade-offs for routing, caching, documentation and client configuration. Consistency matters more than choosing a fashionable convention. Consumers should be able to identify the version they use and understand how long it will be supported. A clear policy reduces surprises and helps teams plan changes before implementation begins."
+        },
+        {
+          "heading": "2. Test Contracts and Prepare Migration Guidance",
+          "text": "API contracts describe the endpoints, request structures, response formats, authentication requirements and error behaviour that consumers can rely on. Maintain version-specific documentation and schemas so clients can understand what has changed. Automated contract tests and integration tests can detect accidental incompatibilities before release. Include common success cases, validation failures, permission checks and edge cases that reflect how real consumers use the service.\n\nWhen a new version introduces a breaking change, provide a migration guide that explains what is different, why the change is needed and how consumers can update their code. Include examples of old and new requests where useful. Offer a test environment or staging release when the API's risk and complexity justify it. Avoid releasing a new version without explaining the support timeline and migration expectations. Teams that depend on the API need enough information to estimate effort, test their integrations and schedule their own releases. Good documentation is part of compatibility management, not an optional task after development."
+        },
+        {
+          "heading": "3. Deprecate Older Versions Responsibly",
+          "text": "Deprecation should be a planned process rather than a sudden shutdown. Announce the intention to retire a version, explain the reasons, publish important dates and identify the replacement path. The available migration window should reflect the API's risk, the number of consumers and the time they need to update. For critical integrations, direct communication with major consumers may be necessary in addition to general release notes.\n\nMonitor usage by version and identify active consumers before retirement. Logs and telemetry can reveal whether an older client is still sending requests, but access to client identities should be handled appropriately. Provide support guidance and clear escalation routes for migration problems. Before switching off the old version, verify that the agreed retirement criteria have been met and that the replacement has been tested. After retirement, continue monitoring errors and support requests to identify overlooked dependencies. This approach lets the API evolve without making stability an afterthought."
+        }
+      ],
+      "quote": "A good API versioning strategy gives software room to evolve without forcing every consumer to change at once.",
+      "conclusion": "API versioning helps development teams balance ongoing improvement with the stability expected by existing integrations. Clear compatibility rules, contract testing, accurate documentation and a responsible deprecation process reduce the risk of unexpected failures. By monitoring usage and communicating changes early, businesses can move consumers toward newer capabilities without unnecessary disruption. A consistent strategy makes APIs easier to maintain as products, partners and technical requirements evolve."
+    },
+    "isPublished": false,
+    "createdAt": new Date("2026-10-26T09:00:00.000Z"),
+    "updatedAt": new Date("2026-10-26T09:00:00.000Z")
+  },
+  {
+    "_id": "6acf85c2a1febf8405eb9847",
+    "title": "SEO Reporting for Business Owners: Metrics That Support Better Decisions",
+    "slug": "seo-reporting-for-business-owners-metrics-that-support-better-decisions",
+    "desc": "Learn which SEO reporting metrics help business owners understand search visibility, qualified traffic, conversions and the business impact of ongoing optimisation.",
+    "category": "SEO",
+    "readTime": "5 min read",
+    "author": "HiveRift Team",
+    "authorRole": "Tech & Strategy",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+    "content": {
+      "intro": "SEO reports often contain many charts, keyword positions and traffic totals, yet business owners may still be unsure what the numbers mean for the company. A useful report should connect search performance with business priorities. It needs to show whether the website is becoming more visible for relevant searches, whether that visibility attracts the right visitors and whether those visitors take meaningful actions. Rankings and traffic remain useful signals, but they rarely tell the full story on their own. Effective SEO reporting combines performance data with context, explains important changes and identifies the next actions worth taking. The goal is not to make every metric look positive. It is to help decision-makers understand progress, recognise problems and allocate resources more confidently.",
+      "keyTakeaways": [
+        "Connect SEO reporting to business goals such as qualified enquiries, sales and relevant audience growth.",
+        "Review impressions, clicks, search queries and landing pages together rather than in isolation.",
+        "Measure conversions and lead quality, not just rankings or total website sessions.",
+        "Explain reporting changes with context such as seasonality, website updates and tracking issues.",
+        "End each report with clear priorities, owners and next steps."
+      ],
+      "sections": [
+        {
+          "heading": "1. Measure Search Visibility and the Quality of Organic Traffic",
+          "text": "Begin with search visibility metrics such as impressions, clicks, click-through rate and the queries that bring visitors to the website. Impressions can show that a page is appearing in search results, while clicks indicate that users chose to visit. Click-through rate adds context, although it can vary with ranking position, search intent, brand familiarity and the type of result displayed. Average position can help identify broad trends, but it should not be treated as a precise or universal ranking for every searcher.\n\nNext, examine the pages receiving organic traffic and whether those visits are relevant. A rise in sessions is less useful if the additional visitors are searching for something the business does not offer. Compare performance by service, location, topic and landing page where the data supports it. Review changes over suitable time periods and account for seasonal demand, campaign activity and website updates. This helps the business distinguish meaningful progress from temporary fluctuations and identify which pages deserve further attention."
+        },
+        {
+          "heading": "2. Connect SEO Activity With Enquiries and Commercial Outcomes",
+          "text": "Business owners need to know what visitors do after arriving from search. Track meaningful conversions such as enquiry submissions, qualified calls, consultation bookings, purchases or other actions that reflect the business model. Make sure analytics records these actions accurately and avoids counting accidental clicks or repeated events as separate conversions. For lead-generation businesses, connect website enquiries with the sales process where possible so the team can distinguish total leads from qualified opportunities.\n\nNot every SEO contribution produces an immediate conversion. Informational content may help visitors research a problem before returning through another channel. Assisted conversions, returning visits and the role of different landing pages can provide additional context, depending on the available analytics setup. Avoid assigning every sale to one channel without understanding the attribution method. Instead, explain what the data can show and where uncertainty remains. Connecting search activity to real business outcomes gives decision-makers a more useful basis for judging priorities than ranking reports alone."
+        },
+        {
+          "heading": "3. Turn the Report Into a Practical Action Plan",
+          "text": "A report should explain what changed, why it may have changed and what the team intends to do next. If impressions rise but clicks remain flat, review the queries, page titles, descriptions and search-result context before assuming that one element is responsible. If traffic increases but enquiries do not, investigate landing page relevance, user experience, conversion tracking and lead quality. If a previously strong page loses visibility, check technical changes, competing results, content freshness and shifts in search demand.\n\nKeep recommendations specific and prioritised. Instead of listing a long collection of possible tasks, identify the most important issues, expected business impact, responsible owner and target review date. Distinguish completed work from planned work, and explain any limitations in the data. Use consistent reporting definitions so comparisons remain meaningful over time. Regular reviews help the business see whether earlier actions produced the expected results and whether priorities need to change. A concise, honest report that supports decisions is more valuable than a large dashboard that leaves every next step unclear."
+        }
+      ],
+      "quote": "The value of an SEO report lies not in the number of metrics it contains, but in the decisions it helps a business make.",
+      "conclusion": "SEO reporting for business owners should connect search visibility with qualified traffic and measurable business outcomes. Impressions, clicks and rankings help explain how a website appears in search, while conversion data provides insight into what visitors do next. Clear context and prioritised recommendations turn these metrics into an actionable plan. By reviewing performance consistently and being honest about uncertainty, businesses can make better decisions about their SEO investment and continue improving the website over time."
+    },
+    "isPublished": false,
+    "createdAt": new Date("2026-10-26T09:00:00.000Z"),
+    "updatedAt": new Date("2026-10-26T09:00:00.000Z")
   }
 ];
 
@@ -793,26 +1193,35 @@ async function seed() {
 
   for (const item of blogsToSeed) {
     const objectId = new mongoose.Types.ObjectId(item._id);
+    const slug =
+      item.slug ||
+      item.title
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/[\s_-]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+
     const doc = {
       ...item,
       _id: objectId,
+      slug,
+      createdAt: item.createdAt ? new Date(item.createdAt) : new Date(),
+      updatedAt: item.updatedAt ? new Date(item.updatedAt) : new Date(),
     };
 
     const existing = await collection.findOne({
-      $or: [{ _id: objectId }, { slug: item.slug }]
+      $or: [{ _id: objectId }, { slug: doc.slug }],
     });
 
     if (existing) {
-      await collection.updateOne(
-        { _id: existing._id },
-        { $set: doc }
-      );
+      await collection.updateOne({ _id: existing._id }, { $set: doc });
       updatedCount++;
-      console.log(`Updated: "${item.title}" (${item.slug})`);
+      console.log(`Updated: "${item.title}" (${doc.slug})`);
     } else {
       await collection.insertOne(doc);
       insertedCount++;
-      console.log(`Inserted: "${item.title}" (${item.slug})`);
+      console.log(`Inserted: "${item.title}" (${doc.slug})`);
     }
   }
 
