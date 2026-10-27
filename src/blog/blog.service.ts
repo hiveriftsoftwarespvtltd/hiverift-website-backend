@@ -27,9 +27,7 @@ export class BlogService {
 
   private formatBlogImage(blog: any): any {
     if (!blog) return blog;
-    const doc = blog.toObject
-      ? blog.toObject()
-      : JSON.parse(JSON.stringify(blog));
+    const doc = blog.toObject ? blog.toObject() : { ...blog };
 
     const port = process.env.PORT || '7001';
     let baseUrl = (
@@ -145,7 +143,7 @@ export class BlogService {
     }
   }
 
-  async findAll(category?: string, search?: string) {
+  async findAll(category?: string, search?: string, full?: string) {
     try {
       const query: any = {};
 
@@ -160,14 +158,34 @@ export class BlogService {
         ];
       }
 
+      const projection: any =
+        full === 'true'
+          ? {}
+          : {
+              title: 1,
+              slug: 1,
+              desc: 1,
+              category: 1,
+              readTime: 1,
+              author: 1,
+              authorRole: 1,
+              image: 1,
+              isPublished: 1,
+              createdAt: 1,
+              updatedAt: 1,
+            };
+
       let blogs: any[] = [];
       try {
         blogs = await this.blogModel.collection
-          .find(query)
+          .find(query, { projection })
           .sort({ createdAt: -1 })
           .toArray();
       } catch (e) {
-        blogs = await this.blogModel.find(query).sort({ createdAt: -1 }).exec();
+        blogs = await this.blogModel
+          .find(query, projection)
+          .sort({ createdAt: -1 })
+          .exec();
       }
 
       return {

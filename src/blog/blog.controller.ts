@@ -54,8 +54,9 @@ export class BlogController {
   findAll(
     @Query('category') category?: string,
     @Query('search') search?: string,
+    @Query('full') full?: string,
   ) {
-    return this.blogService.findAll(category, search);
+    return this.blogService.findAll(category, search, full);
   }
 
   @Post('seed')
