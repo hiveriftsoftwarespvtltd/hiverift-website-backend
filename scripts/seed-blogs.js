@@ -814,7 +814,7 @@ const blogsToSeed = [
       "quote": "A reliable website is not simply launched; it is maintained, tested and improved as the business evolves.",
       "conclusion": "A monthly website maintenance plan helps businesses protect their digital presence while keeping customer journeys dependable. Security reviews, tested backups, performance checks, working forms and accurate content all contribute to a stronger website. Businesses should prioritise tasks according to their website's complexity and commercial importance, then document the results so nothing essential is overlooked. With a consistent process, maintenance becomes a planned investment in reliability rather than an emergency response after something goes wrong."
     },
-    "isPublished": false,
+    "isPublished": true,
     "createdAt": new Date("2026-10-26T09:00:00.000Z"),
     "updatedAt": new Date("2026-10-26T09:00:00.000Z")
   },
@@ -854,7 +854,7 @@ const blogsToSeed = [
       "quote": "Good landing page copy does not push every visitor to act; it helps the right visitor understand why the next step makes sense.",
       "conclusion": "Landing page conversion copy works best when it reflects real customer questions and provides clear, credible answers. A focused headline, an understandable offer, relevant proof and a specific call to action help visitors make decisions with greater confidence. Businesses should review actual enquiries and sales feedback regularly, then test improvements instead of changing everything at once. The goal is not simply to increase clicks, but to create a smoother path from interest to a useful business conversation."
     },
-    "isPublished": false,
+    "isPublished": true,
     "createdAt": new Date("2026-10-26T09:00:00.000Z"),
     "updatedAt": new Date("2026-10-26T09:00:00.000Z")
   },
@@ -894,7 +894,7 @@ const blogsToSeed = [
       "quote": "The purpose of content pruning is not to publish less; it is to make every retained page earn its place.",
       "conclusion": "SEO content pruning can improve a website when decisions are based on the purpose and performance of individual pages. Businesses should identify content that needs refreshing, consolidate genuine overlaps and remove pages only when they no longer serve a useful role. Technical checks and careful monitoring are essential because URLs may carry value through backlinks, internal navigation or conversions that traffic reports alone do not reveal. A documented process helps maintain a healthier, more useful content library over time."
     },
-    "isPublished": false,
+    "isPublished": true,
     "createdAt": new Date("2026-10-26T09:00:00.000Z"),
     "updatedAt": new Date("2026-10-26T09:00:00.000Z")
   },
@@ -934,7 +934,7 @@ const blogsToSeed = [
       "quote": "The best analytics event is one that helps a team make a better product decision.",
       "conclusion": "A thoughtful mobile app analytics plan measures actions that connect user behaviour with product goals. Clear event definitions, useful properties, privacy safeguards and thorough validation create data that teams can trust. The real value appears when findings lead to focused improvements in onboarding, navigation, search or checkout. By reviewing both quantitative behaviour and direct user feedback, businesses can make more informed decisions about how their apps should evolve."
     },
-    "isPublished": false,
+    "isPublished": true,
     "createdAt": new Date("2026-10-26T09:00:00.000Z"),
     "updatedAt": new Date("2026-10-26T09:00:00.000Z")
   },
@@ -974,7 +974,7 @@ const blogsToSeed = [
       "quote": "Transparent pricing does more than explain cost; it helps customers understand what they are choosing and why it matters.",
       "conclusion": "A well-planned service business pricing page helps potential customers assess fit before they request a quote. By explaining the pricing model, scope, cost factors and expected outcomes, a business can reduce uncertainty and improve the quality of its enquiries. Custom pricing can remain flexible while still being transparent about how decisions are made. The most effective page sets realistic expectations and gives suitable prospects a clear path toward the next conversation."
     },
-    "isPublished": false,
+    "isPublished": true,
     "createdAt": new Date("2026-10-26T09:00:00.000Z"),
     "updatedAt": new Date("2026-10-26T09:00:00.000Z")
   },
@@ -1014,7 +1014,7 @@ const blogsToSeed = [
       "quote": "An AI feature is only as dependable as the complete workflow that delivers its result to the user.",
       "conclusion": "AI integration testing helps teams move beyond a successful demonstration toward a dependable production feature. Testing representative inputs, business rules, failure handling, security and output quality reveals risks that model-only evaluations may miss. Teams should maintain regression tests, monitor real-world performance and define clear recovery procedures before release. This disciplined approach makes AI integrations easier to trust, troubleshoot and improve as applications grow."
     },
-    "isPublished": false,
+    "isPublished": true,
     "createdAt": new Date("2026-10-26T09:00:00.000Z"),
     "updatedAt": new Date("2026-10-26T09:00:00.000Z")
   },
@@ -1054,7 +1054,7 @@ const blogsToSeed = [
       "quote": "The fastest route to better web performance is to diagnose the bottleneck before choosing the fix.",
       "conclusion": "Core Web Vitals troubleshooting works best when teams connect metrics with the actual causes of poor user experience. Field data helps identify real-world patterns, while controlled tests help investigate individual bottlenecks. By examining loading, responsiveness and layout stability separately, developers can prioritise fixes that matter to visitors and business outcomes. Regular retesting and monitoring then help keep those improvements in place as the website changes."
     },
-    "isPublished": false,
+    "isPublished": true,
     "createdAt": new Date("2026-10-26T09:00:00.000Z"),
     "updatedAt": new Date("2026-10-26T09:00:00.000Z")
   },
@@ -1094,7 +1094,7 @@ const blogsToSeed = [
       "quote": "Customer feedback becomes valuable when people can see that their experience leads to thoughtful action.",
       "conclusion": "A well-managed customer feedback loop helps businesses learn from support conversations and address the causes behind recurring problems. Consistent capture, useful categorisation, sensible prioritisation and clear ownership make feedback easier to act on. Closing the loop with customers demonstrates respect and creates opportunities to strengthen trust. Over time, the process can reduce avoidable support work while helping the business deliver services that better match customer needs."
     },
-    "isPublished": false,
+    "isPublished": true,
     "createdAt": new Date("2026-10-26T09:00:00.000Z"),
     "updatedAt": new Date("2026-10-26T09:00:00.000Z")
   },
@@ -1134,7 +1134,7 @@ const blogsToSeed = [
       "quote": "A good API versioning strategy gives software room to evolve without forcing every consumer to change at once.",
       "conclusion": "API versioning helps development teams balance ongoing improvement with the stability expected by existing integrations. Clear compatibility rules, contract testing, accurate documentation and a responsible deprecation process reduce the risk of unexpected failures. By monitoring usage and communicating changes early, businesses can move consumers toward newer capabilities without unnecessary disruption. A consistent strategy makes APIs easier to maintain as products, partners and technical requirements evolve."
     },
-    "isPublished": false,
+    "isPublished": true,
     "createdAt": new Date("2026-10-26T09:00:00.000Z"),
     "updatedAt": new Date("2026-10-26T09:00:00.000Z")
   },
@@ -1174,7 +1174,7 @@ const blogsToSeed = [
       "quote": "The value of an SEO report lies not in the number of metrics it contains, but in the decisions it helps a business make.",
       "conclusion": "SEO reporting for business owners should connect search visibility with qualified traffic and measurable business outcomes. Impressions, clicks and rankings help explain how a website appears in search, while conversion data provides insight into what visitors do next. Clear context and prioritised recommendations turn these metrics into an actionable plan. By reviewing performance consistently and being honest about uncertainty, businesses can make better decisions about their SEO investment and continue improving the website over time."
     },
-    "isPublished": false,
+    "isPublished": true,
     "createdAt": new Date("2026-10-26T09:00:00.000Z"),
     "updatedAt": new Date("2026-10-26T09:00:00.000Z")
   }
